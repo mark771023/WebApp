@@ -1,0 +1,42 @@
+﻿@model StoryTest3.Models.MemberReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MemberReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemRepFactor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemRepFactor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemRepDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemRepDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Account)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MemRepID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0cd487a1b22a4f1d8bf03df8e3471948" Name="Diagram1">
+        <EntityTypeShape EntityType="STORY_Test6Model1.Accounts" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.AccountsMapping" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.ActionLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Administrator" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Announcement" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Commodity" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.CommodityEvaluation" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.CommodityReport" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.CommodityReportMapping" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Favourite" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Industry" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Member" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.MemberEvaluation" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.MemberReport" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.MemberReportMapping" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.MessageMapping" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.MessageReply" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Order" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.OrderMapping" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Photo" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.RequestLog" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.sysdiagrams" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STORY_Test6Model1.Visitors" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__AccountsM__ActID__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__AccountsM__Indus__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Announcem__Admin__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Commodity__Admin__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MemberRep__Admin__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Commodity__CommI__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Commodity__CommI__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Commodity__MemID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Favourite__CommI__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK_Commodity_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK_OrderMapping_Commodity" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Commodity__CommR__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Favourite__MemID__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MemberEva__MemID__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MemberRep__MemID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MessageMa__MemID__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MessageRe__MemID__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__Photo__MemID__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK_Order_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK_OrderMapping_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MemberRep__MemRe__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="STORY_Test6Model1.FK__MessageMa__Reply__5CD6CB2B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

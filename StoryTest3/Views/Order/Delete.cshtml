@@ -1,0 +1,62 @@
+﻿@model StoryTest3.Models.Order
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+    <h2>Delete</h2>
+
+@*<h3>您確定要刪除這筆訂單嗎?</h3>*@
+<div>
+    <h4>訂單</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrdID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="確認刪除" /> |
+            @Html.ActionLink("回到列表", "Index")
+        </div>
+    }
+</div>

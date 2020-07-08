@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        .small{
+            font-size:0.5rem;
+        }
+        .default {
+            font-size: 1rem;
+        }
+        .large {
+            font-size: 3rem;
+        }
+        .bkColor{
+            background-color:yellow;
+        }
+    </style>   
+
+</head>
+<body>
+
+    <span id="small">縮小</span>
+    <span id="default">標準</span>
+    <span id="large">放大</span>
+
+    <p class="bkColor">Hello jQuery!!!</p>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $('#small').click(function () {
+            $('p').removeClass('default').removeClass('large').addClass('small');  //指定清理
+        });
+          $('#default').click(function () {
+            $('p').removeClass().addClass('default');
+        });
+          $('#large').click(function () {             //在同一階層裡  屬性互相衝突  會有寫的順序問題   會以最後的為主  
+            $('p').removeClass().addClass('large');
+        });
+    </script>
+
+
+
+</body>
+</html>

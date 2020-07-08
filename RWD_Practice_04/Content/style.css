@@ -1,0 +1,19 @@
+.box-30{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.mt-60{
+	margin-top: 60px;
+}
+.footer-content{
+    height: 60px;
+    line-height: 60px;
+}
+.header{
+	padding: 50px 0px;
+	background-image: url(../images/Banner.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top center;
+}

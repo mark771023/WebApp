@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        //for (i=1 ; i<=10 ; i++) {
+        //     document.write("<h1>Welcome My Homepage!!</h1>");
+        //}
+        //document.write("<br>");
+
+
+        //for (j = 1; j <= 100; j++) {
+        //    for (i = 1; i <= 6; i++) {
+        //        document.write("<h" + i + ">Welcome My Homepage!!</h" + i + ">");
+        //    }
+        //}
+
+        //document.write("<br>");
+
+
+
+        //for (j = 1; j <= 5000; j++) {
+        //    for (i = 1; i <= j; i++) {
+        //        document.write("*");
+            
+        //    }
+
+        //    document.write("<br>");
+        //}
+
+        //var result="";
+        //    for (i = 1; i <= 5; i++) {
+        //        result += "*";
+        //        document.write(result+"<br>");
+        //    }
+        //document.write("<hr>");
+
+
+        var result2 = "";
+        var total = 0, c = 0, i=1;
+        for (j = 1; j <= 84; j++) {
+            result2 += "<h" + i + ">Welcome My Homepage!!</h" + i + ">"
+            i++;
+            c++;
+            if (i == 7) {
+                i = 1;
+                document.write(result2);
+                document.write("列數:"+(total+=c));
+            }
+           
+        }
+
+
+        // for (i = 1; i <= 100; i++) {
+        //   document.write("<h1>Welcome My Homepage!!</h1><h2>Welcome My Homepage!!</h2><h3>Welcome My Homepage!!</h3><h4>Welcome My Homepage!!</h4><h5>Welcome My Homepage!!</h5><h6>Welcome My Homepage!!</h6>");
+        
+        //}
+    </script>
+</body>
+</html>

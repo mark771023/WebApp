@@ -1,0 +1,114 @@
+﻿@model IEnumerable<STORY_Test6.Models.Order>
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+
+<h2>訂單明細</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            訂單編號
+            @*@Html.DisplayNameFor(model => model.OrdGuid)*@
+        </th>
+        <th>
+            會員帳號
+            @*@Html.DisplayNameFor(model => model.Member.Account)*@
+        </th>
+        <th>
+            收件人
+            @*@Html.DisplayNameFor(model => model.Receiver)*@
+        </th>
+        <th>
+            電子信箱
+            @*@Html.DisplayNameFor(model => model.Email)*@
+        </th>
+        <th>
+            地址
+            @*@Html.DisplayNameFor(model => model.Address)*@
+        </th>
+        <th>
+            下訂日期
+            @*@Html.DisplayNameFor(model => model.OrdDate)*@
+        </th>
+        <th>
+            價格
+            @*@Html.DisplayNameFor(model => model.OrdAmount)*@
+        </th>
+        <th>
+            數量
+            @*@Html.DisplayNameFor(model => model.OrdTotal)*@
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Transport)
+        </th>*@
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrdGuid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Member.Account)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Receiver)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrdDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrdAmount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrdTotal)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Transport)
+        </td>*@
+
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrdID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrdID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrdID })
+        </td>*@
+</tr>
+    }
+
+</table>
+
+
+<form action="/" method="post">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("回到訂單列表", "OrderList", "Order", null, new { @class = "btn btn-primary" })
+
+        </div>
+    </div>
+</form>

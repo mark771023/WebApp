@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <style>
+    .line{
+    border:10px solid;
+    }  
+    .blue {
+            background-color: blue;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    
+        .red {
+            background-color: red;
+        }
+       
+    </style >
+
+    </head >
+    <body >
+
+    <ul id="list" >
+    <li > aaa</li >
+    <li > bbb</li >
+    <li > ccc</li >
+    <li >
+    ddd
+    <ul id="list1_1" >
+    <li > aaa</li >
+    <li > bbb</li >
+    <li >
+    ccc
+    <ul id="list1_1_1" >
+    <li > aaa</li >
+    <li > bbb</li >
+    <li > ccc</li >
+    <li > ddd</li >
+    <li > eee</li >
+    </ul >
+    </li >
+    <li > ddd</li >
+    <li > eee</li >
+    </ul >
+    </li >
+    <li >
+    eee
+    <ul id="list1_2" >
+    <li > aaa</li >
+    <li > bbb</li >
+    <li > ccc</li >
+    <li > ddd</li >
+    <li > eee</li >
+    </ul >
+    </li >
+    </ul >
+
+
+    <script src="Scripts/jquery-3.4.1.min.js" >
+
+    </script >
+    <script>
+        //$('#list').addClass('line'); //我要選這頁上面名為list的物件   一開始先選選擇器
+        //$('#list').addClass('red');
+        //$('#list').addClass('yellow'); //看Css的順序 而非jQuery
+
+        $('#list').addClass('line').addClass('red').addClass('yellow'); 
+
+        $('#list ul').addClass('yellow'); //在list底下找出所有ul的物件, 空格代表往下找
+
+        $('#list>li:nth-chlid(2n+1)').addClass('blue');  //只選li的下一代  只選基數列
+
+        //var list = document.getElementById("list");
+    </script>    
+
+    </body >
+
+    </html >

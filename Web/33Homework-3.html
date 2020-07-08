@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="PlayerStyle.css" rel="stylesheet" />
+
+</head>
+<body>
+    <audio id="audio">
+        <source id="song" type="audio/mpeg" />
+    </audio>
+
+    <div id="ControlPanel">
+        <select id="music">
+        </select>
+
+        <hr />
+
+        <span id="play">4</span>
+        <span id="stop"><</span>
+        <!--<span id="pause">;</span>-->
+        <span id="prevsong">9</span>
+        <span id="prevtime">7</span>
+        <span id="nexttime">8</span>
+        <span id="nextsong">:</span>
+        <span id="muted">V</span>
+        <span id="random" title="隨機播放">s</span>
+        <span id="loop" title="單曲循環">q</span>
+        <span id="allloop" title="全曲循環">`</span>
+        <span id="songbook">@</span>
+
+        <hr />
+
+        <input id="progress" type="range" value="0" />
+        <input id="vol" type="range" value="40" max="100" min="0" />
+        <input id="volM" type="button" value="-" />
+        <input id="volP" type="button" value="+" />
+        <input id="volValue" type="text" readonly />
+
+        <hr />
+
+        <div id="duration"></div>
+        <marquee id="info">請按播放鈕~~~~~~~</marquee>
+        <div id="info2"></div>
+
+        <hr />
+
+        <div id="Sbook" class="hide">
+            <div title="music/07-blazing-ashes-ii.mp3">blazing-ashes</div>
+            <div title="music/19-emiya-ubw-extended.mp3">emiya</div>
+            <div title="music/barricades-with-lyrics.mp3">barricades</div>
+            <div title="music/dragon-ball-super-norihito-sumitomo.mp3">norihito-sumitomo</div>
+            <div title="music/epic-anime-music-saber-alter-vs-berseker.mp3">saber-alter</div>
+            <div title="music/t-aek-0n-taitn-wmid.mp3">wmid</div>
+            <div title="music/xiao-xing-xing-bian-zou-qu.mp3">xiao-xing</div>
+            <div title="music/zero-eclipse-with-lyrics.mp3">zero-eclipse</div>
+            <div title="music/batta-chase-music-video-tvanime-ziyoziyonoqi-miao-namou-xian-daiyamondohasui-kenai-xin-opuningutema.mp3">chase</div>
+            <div title="music/desperate-assault-theme-hq-cover.mp3">desperate-assault</div>
+            <div title="music/ge-ji-la-huan-xiang-qu-fantasy-for-band-godzilla.mp3">godzilla</div>
+            <div title="music\dxiao-diao-an-hun-mi-sa-qu-mo-ri-jing.mp3">Mozart</div>
+
+        </div>
+
+        <div id="Tbook" class="hide">
+
+        </div>
+
+        <input id="btnUpdateMusic" type="button" value="更新歌單" class="hide" />
+
+    </div>
+
+
+    <script src="PlayerJS.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿.bg-MyYellow {
+    background-color: yellow;
+}
+
+.bg-warning {
+    background-color: blueviolet !important;
+}
+
+.ForJumbotronFont {
+    font-size: 5rem;
+    text-shadow: 3px 3px 5px black;
+}
+
+.ForJumbotronChineseFont {
+    font-family: 微軟正黑體;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 3px 3px 5px black;
+}
+
+
+.ForJumbotronLeadFont {
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px black;
+}
+
+.ForJumbotronnLeadChineseFont {
+    font-family: 微軟正黑體;
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 3px 3px 5px black;
+}
+
+.jumbotron {
+    padding: 2.5rem 2rem;
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+    background-image: url('../images/00.jpg');
+    background-repeat: round;
+}
+
+.ForCarouselFont {
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px black;
+    font-family: 微軟正黑體;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: red;
+    content: ">";
+}
+
+
+
+.breadcrumb-item.active {
+    color: white;
+    background-color: #514f4f;
+}

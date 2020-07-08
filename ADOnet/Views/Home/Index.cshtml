@@ -1,0 +1,54 @@
+﻿@using System.Data
+
+@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "學生資料";
+}
+
+<h2>學生資料</h2>
+@if (Session["id"] != null)
+{
+    <p>
+        @*<a href="/Home/Create">新增學生資料</a>*@
+
+        @Html.ActionLink("新增學生資料", "Create", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("登出系統", "Logout", "Login", null, new { @class = "btn btn-danger" })
+    </p>
+}
+else
+{
+    <p>
+        @*<a href="/Home/Create">新增學生資料</a>*@
+        @Html.ActionLink("登入系統", "Index", "Login", null, new { @class = "btn btn-danger" })
+    </p>
+}
+@if (Model.Rows.Count == 0)
+{
+    <h1 class="text-danger">無任何資料</h1>
+}
+else
+{
+    <div class="row">
+        @foreach (DataRow row in Model.Rows)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <h3>姓名:@row["fName"]</h3>
+                    <p class="text-right">學號:@row["fStuId"]</p>
+                    <h1 class="text-center">@row["fScore"]</h1>
+                    <p class="alert alert-info">@row["fEmail"]</p>
+                    @if (Session["id"] != null)
+                    {
+                        <hr />
+                        <p class="text-right">
+                            @Html.ActionLink("修改", "Edit", new { fStuId = row["fStuId"] }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("刪除", "Delete", new { fStuId = row["fStuId"] }, new { onclick = "return confirm('您確定要刪除[" + row["fName"] + "]嗎?')", @class = "btn btn-danger" })
+                            @*欄位名稱     值*@
+                        </p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}

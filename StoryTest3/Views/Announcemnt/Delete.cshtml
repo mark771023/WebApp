@@ -1,0 +1,56 @@
+﻿@model StoryTest3.Models.Announcement
+
+@{
+    ViewBag.Title = "刪除公告";
+}
+
+    <h2>刪除公告</h2>
+
+<h3>您確定要刪除這則公告嗎?</h3>
+<div>
+    <h4>Announcement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCont)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCont)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator.AdminAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrator.AdminAccount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="確認刪除" class="btn btn-default" /> |
+            @Html.ActionLink("回到公告首頁", "Index")
+        </div>
+    }
+</div>

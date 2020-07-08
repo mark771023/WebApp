@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar" style="width:69%" role="progressbar">69%</div>
+        </div>
+        <hr />
+        <div class="progress">
+            <div class="progress-bar bg-danger" style="width:69%" role="progressbar">69%</div>
+        </div>
+        <hr />
+        <div class="progress">
+            <div class="progress-bar bg-success" style="width:69%" role="progressbar">69%</div>
+        </div>
+        <hr />
+        <div class="progress">
+            <div class="progress-bar bg-warning" style="width:69%" role="progressbar">69%</div>
+        </div>
+
+        <hr />
+
+        <div class="progress">
+            <div class="progress-bar bg-danger" style="width:40%" role="progressbar">40%</div>
+            <div class="progress-bar bg-warning" style="width:30%" role="progressbar">30%</div>
+            <div class="progress-bar bg-success" style="width:13%" role="progressbar">13%</div>
+        </div>
+
+        <hr />
+
+        <div class="progress">
+            <div class="progress-bar bg-success progress-bar-striped" style="width:69%" role="progressbar">69%</div>
+        </div>
+
+        <hr />
+
+        <div class="progress" id="myProgress">
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"></div>
+        </div>
+
+    </div>
+
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script>
+        var a = 0;
+        function timer() {
+            a += 2;
+            $('#myProgress>div').css({ 'width': a + '%' });
+            $('#myProgress>div').text(a + '% Complete');
+            if (a < 100)
+                setTimeout("timer()", 200);
+
+            //alert('test')
+        }
+        timer();
+
+    </script>
+</body>
+</html>

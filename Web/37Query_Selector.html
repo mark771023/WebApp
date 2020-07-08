@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+    .liner{
+        border: 1px solid;
+    }
+
+    </style>   
+
+</head>
+<body>
+
+    <ol id="list">
+        <li>JavaScript程式設計</li>
+        <li>jQuery程式設計</li>
+        <li>ASP.net程式設計</li>
+        <li>PHP程式設計</li>
+        <li>JSP程式設計</li>
+        <li>ASP3.0程式設計</li>
+        <li>Dreamweaver網頁設計</li>
+        <li><a href="tw.yahoo.com">Yahoo!奇摩</a></li>
+        <li><a href="http://www.google.com.tw">Google</a></li>
+        <li><a href="http://kpptr.wda.gov.tw">高屏澎東分署</a></li>
+    </ol>
+
+    <script src="Scripts/jquery-3.4.1.min.js">
+    </script>
+
+    <script> 
+        $('#list li').addClass('line');//全部都有線
+        $('#list li:contains("SP")').addClass('line'); //延伸寫法 在li裡面找 找到有SP相連的字
+        $('#list li>a[href*=o]').addClass('line');  //*意思:在子裡面找有o的--->滿足條件(有o的)裡任何一個字
+        $('#list li>a[href$=tw]').addClass('line');  //$意思: 最後, 在這裡為選擇tw結尾的字
+        $('#list li>a[href^=tw]').addClass('line');  //^意思: 開頭, 在這裡為選擇tw開頭的字
+
+    </script>
+
+</body>
+</html>

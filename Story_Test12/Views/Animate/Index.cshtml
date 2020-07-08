@@ -1,0 +1,122 @@
+﻿@*  *@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{
+        <title>@ViewBag.Title - 歡迎光臨-STORY-寶物傳承平台</title>
+
+        //ViewBag.Title = "歡迎光臨寶物傳承平台";
+    }
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <style>
+
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+            .bg img {
+                min-height: 100%;
+                width: 100%;
+            }
+
+        #bkcover {
+            position: fixed;
+            overflow: auto;
+            /*cursor: pointer;*/
+            width: 600px;
+            height: 800px;
+            margin-top: 50px;
+            left: 200px;
+            /*top: 40px;*/
+            /*display: none;*/
+        }
+
+        #link {
+            position: fixed;
+            overflow: auto;
+            cursor: pointer;
+            width: 600px;
+            height: 800px;
+            margin-top: 620px;
+            left: 410px;
+            font-size: 50px;
+            /*color:gold;*/
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            /*color: rgb(255, 0, 0);*/
+        }
+
+        #bkopen {
+            position: absolute;
+            width: 1500px;
+            height: 70px;
+            margin-top: 50px;
+            left: 50px;
+            z-index: 50;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class=" bg img-fluid ">
+        <img src="~/Images/bg1.jpg" />
+    </div>
+
+    <div>
+        <h2></h2>
+        <img src="~/Images/bg2.jpg" id="bkcover" class="img-fluid " />
+    </div>
+
+    <div id="link">
+        @Html.ActionLink("S T O R Y", "Index", "Home", null, new { style="color:gold" })
+    </div>
+
+    <img src="~/Images/bg3.PNG" id="bkopen"/>
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $('#bkcover').hide();
+        $('#bkopen').hide();
+        $('#bkcover').fadeIn(2000);
+        $('#bkcover').animate({ 'left': '1000px' }, 1000);
+        $('#link').hide();
+        $('#link').fadeIn(2000);
+        $('#link').animate({ 'left': '1200px' }, 1000);
+
+
+        $('#link').click(function () {
+            $('#bkcover').hide(50);
+            //$('#bkopen').show(100);
+            $('#link').hide();
+            $('#bkopen').fadeIn(200);
+            $('#bkopen').animate({ 'width': '1600px', 'height': '800px' }, 300);
+            $('#bkopen').animate({ 'width': '1700px', 'height': '900px' }, 400);
+            $('#bkopen').animate({ 'width': '1800px', 'height': '1000px' }, 500);
+            $('#bkopen').animate({ 'width': '1900px', 'height': '1100px' }, 600);
+            $('#bkopen').animate({ 'width': '2000px', 'height': '1200px' }, 700);
+            $('#bkopen').animate({ 'width': '2100px', 'height': '1300px' }, 800);
+            $('#bkopen').animate({ 'width': '2200px', 'height': '1400px' }, 900);
+            $('#bkopen').animate({ 'width': '2500px', 'height': '2000px' }, 1000);
+            //$('#bkopen').animate({ 'width': '2400px', 'height': '1600px' }, 1100);         
+         
+        });
+    </script>
+
+</body>
+</html>

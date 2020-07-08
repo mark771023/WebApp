@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        var name;  //宣告
+        name = "Jack"; //初始化
+
+        var name2 = 123; //宣告時即初始化
+        name2 = name2 + 10;
+
+        document.write("我的名字叫" + name);
+        document.write("<br />"+name2+"<hr />");
+        ///////////////////////////////////////////////
+        //數值(number)資料型態的分類
+        a = 123;
+        document.write("a=" + a+"<br />");
+        a = 776;  //10進位整數
+        document.write("a=" + a+"<br />");
+        a = 0776;  //8進位整數
+        document.write("a=" + a + "<br />");
+        a = 0x776;  //16進位整數
+        document.write("a=" + a + "<br />");
+        //浮點數
+        a = 0.5;
+        document.write("a=" + a + "<br />");
+
+          a = 0.0005;
+        document.write("a=" + a + "<br />");
+
+        a = 5e-19;
+        document.write("a=" + a + "<br />");
+        a = 5e-19*100000000;
+        document.write("a=" + a + "<br />");
+          a = 5e-19*9999999999999999999999;
+        document.write("a=" + a + "<br />");
+    </script>
+</body>
+</html>

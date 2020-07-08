@@ -1,0 +1,42 @@
+﻿@model _01Todo.Models.tToDo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tToDo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

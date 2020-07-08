@@ -1,0 +1,1678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="STORY_Test6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fee" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountsMapping">
+          <Key>
+            <PropertyRef Name="ActID" />
+            <PropertyRef Name="OrdID" />
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="ActID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrdID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IndustryID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TransactionTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminAccount" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="AdminPwd" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Authority" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PostName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostTime" Type="datetime" Nullable="false" />
+          <Property Name="PostCont" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commodity">
+          <Key>
+            <PropertyRef Name="CommID" />
+          </Key>
+          <Property Name="CommID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MessageID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CommName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Total" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Story" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="InitDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommodityEvaluation">
+          <Key>
+            <PropertyRef Name="CommEltID" />
+          </Key>
+          <Property Name="CommEltID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommodityReport">
+          <Key>
+            <PropertyRef Name="CommRepID" />
+          </Key>
+          <Property Name="CommRepID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CommID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CommRepFactor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CommRepDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommodityReportMapping">
+          <Key>
+            <PropertyRef Name="CommRepID" />
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="CommRepID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AcceptDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Favourite">
+          <Key>
+            <PropertyRef Name="FavouriteID" />
+          </Key>
+          <Property Name="FavouriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CommID" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IndustryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemID" />
+          </Key>
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InitDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberEvaluation">
+          <Key>
+            <PropertyRef Name="MemEltID" />
+          </Key>
+          <Property Name="MemEltID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberReport">
+          <Key>
+            <PropertyRef Name="MemRepID" />
+          </Key>
+          <Property Name="MemRepID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemRepFactor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MemRepDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberReportMapping">
+          <Key>
+            <PropertyRef Name="MemRepID" />
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="MemRepID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AcceptDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageMapping">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="MemID" />
+            <PropertyRef Name="ReplyID" />
+          </Key>
+          <Property Name="MessageID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReplyID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MessageCont" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MessageTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageReply">
+          <Key>
+            <PropertyRef Name="ReplyID" />
+          </Key>
+          <Property Name="ReplyID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReplyCont" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrdID" />
+          </Key>
+          <Property Name="OrdID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrdAmount" Type="money" Nullable="false" />
+          <Property Name="OrdTotal" Type="int" Nullable="false" />
+          <Property Name="Transport" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrdDate" Type="datetime" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderMapping">
+          <Key>
+            <PropertyRef Name="OrdID" />
+            <PropertyRef Name="MemID" />
+            <PropertyRef Name="CommID" />
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="OrdID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CommID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IndustryID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Result" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ShipDate" Type="datetime" Nullable="false" />
+          <Property Name="CommName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrdAmount" Type="money" Nullable="false" />
+          <Property Name="OrdTotal" Type="int" Nullable="false" />
+          <Property Name="IsApproved" Type="nvarchar" MaxLength="10" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Total" Type="int" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Name="PhotoID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Visitors">
+          <Key>
+            <PropertyRef Name="VisitorsID" />
+          </Key>
+          <Property Name="VisitorsID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ArrivalsTime" Type="datetime" Nullable="false" />
+          <Property Name="BrowseTime" Type="datetime" Nullable="false" />
+          <Property Name="LeaveTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AccountsM__ActID__5812160E">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountsM__Indus__5BE2A6F2">
+          <End Role="Industry" Type="Self.Industry" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Announcem__Admin__571DF1D5">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Announcement">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__Admin__5441852A">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="CommodityReportMapping" Type="Self.CommodityReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="CommodityReportMapping">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommI__47DBAE45">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="CommodityEvaluation" Type="Self.CommodityEvaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="CommodityEvaluation">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommI__48CFD27E">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="CommodityReport" Type="Self.CommodityReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="CommodityReport">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommR__5535A963">
+          <End Role="CommodityReport" Type="Self.CommodityReport" Multiplicity="1" />
+          <End Role="CommodityReportMapping" Type="Self.CommodityReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommodityReport">
+              <PropertyRef Name="CommRepID" />
+            </Principal>
+            <Dependent Role="CommodityReportMapping">
+              <PropertyRef Name="CommRepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__MemID__4E88ABD4">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Commodity">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favourite__CommI__4AB81AF0">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="Favourite">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favourite__MemID__4D94879B">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Favourite">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberEva__MemID__4BAC3F29">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberEvaluation" Type="Self.MemberEvaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MemberEvaluation">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__Admin__534D60F1">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="MemberReportMapping" Type="Self.MemberReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="MemberReportMapping">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__MemID__4CA06362">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberReport" Type="Self.MemberReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MemberReport">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__MemRe__5629CD9C">
+          <End Role="MemberReport" Type="Self.MemberReport" Multiplicity="1" />
+          <End Role="MemberReportMapping" Type="Self.MemberReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberReport">
+              <PropertyRef Name="MemRepID" />
+            </Principal>
+            <Dependent Role="MemberReportMapping">
+              <PropertyRef Name="MemRepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageMa__MemID__5165187F">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MessageMapping" Type="Self.MessageMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MessageMapping">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageMa__Reply__5CD6CB2B">
+          <End Role="MessageReply" Type="Self.MessageReply" Multiplicity="1" />
+          <End Role="MessageMapping" Type="Self.MessageMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageReply">
+              <PropertyRef Name="ReplyID" />
+            </Principal>
+            <Dependent Role="MessageMapping">
+              <PropertyRef Name="ReplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageRe__MemID__52593CB8">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MessageReply" Type="Self.MessageReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MessageReply">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__CommI__49C3F6B7">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__Indus__5AEE82B9">
+          <End Role="Industry" Type="Self.Industry" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__MemID__4F7CD00D">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__OrdID__59063A47">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="OrdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photo__MemID__5070F446">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountsMapping_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="OrdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="STORY_Test6ModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountsMapping" EntityType="Self.AccountsMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commodity" EntityType="Self.Commodity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommodityEvaluation" EntityType="Self.CommodityEvaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommodityReport" EntityType="Self.CommodityReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommodityReportMapping" EntityType="Self.CommodityReportMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favourite" EntityType="Self.Favourite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry" EntityType="Self.Industry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberEvaluation" EntityType="Self.MemberEvaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberReport" EntityType="Self.MemberReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberReportMapping" EntityType="Self.MemberReportMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageMapping" EntityType="Self.MessageMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageReply" EntityType="Self.MessageReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderMapping" EntityType="Self.OrderMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitors" EntityType="Self.Visitors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AccountsM__ActID__5812160E" Association="Self.FK__AccountsM__ActID__5812160E">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountsM__Indus__5BE2A6F2" Association="Self.FK__AccountsM__Indus__5BE2A6F2">
+            <End Role="Industry" EntitySet="Industry" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Announcem__Admin__571DF1D5" Association="Self.FK__Announcem__Admin__571DF1D5">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="Announcement" EntitySet="Announcement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__Admin__5441852A" Association="Self.FK__Commodity__Admin__5441852A">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="CommodityReportMapping" EntitySet="CommodityReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommI__47DBAE45" Association="Self.FK__Commodity__CommI__47DBAE45">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="CommodityEvaluation" EntitySet="CommodityEvaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommI__48CFD27E" Association="Self.FK__Commodity__CommI__48CFD27E">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="CommodityReport" EntitySet="CommodityReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommR__5535A963" Association="Self.FK__Commodity__CommR__5535A963">
+            <End Role="CommodityReport" EntitySet="CommodityReport" />
+            <End Role="CommodityReportMapping" EntitySet="CommodityReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__MemID__4E88ABD4" Association="Self.FK__Commodity__MemID__4E88ABD4">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Commodity" EntitySet="Commodity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favourite__CommI__4AB81AF0" Association="Self.FK__Favourite__CommI__4AB81AF0">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="Favourite" EntitySet="Favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favourite__MemID__4D94879B" Association="Self.FK__Favourite__MemID__4D94879B">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Favourite" EntitySet="Favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberEva__MemID__4BAC3F29" Association="Self.FK__MemberEva__MemID__4BAC3F29">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberEvaluation" EntitySet="MemberEvaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__Admin__534D60F1" Association="Self.FK__MemberRep__Admin__534D60F1">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="MemberReportMapping" EntitySet="MemberReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__MemID__4CA06362" Association="Self.FK__MemberRep__MemID__4CA06362">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberReport" EntitySet="MemberReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__MemRe__5629CD9C" Association="Self.FK__MemberRep__MemRe__5629CD9C">
+            <End Role="MemberReport" EntitySet="MemberReport" />
+            <End Role="MemberReportMapping" EntitySet="MemberReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageMa__MemID__5165187F" Association="Self.FK__MessageMa__MemID__5165187F">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MessageMapping" EntitySet="MessageMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageMa__Reply__5CD6CB2B" Association="Self.FK__MessageMa__Reply__5CD6CB2B">
+            <End Role="MessageReply" EntitySet="MessageReply" />
+            <End Role="MessageMapping" EntitySet="MessageMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageRe__MemID__52593CB8" Association="Self.FK__MessageRe__MemID__52593CB8">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MessageReply" EntitySet="MessageReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__CommI__49C3F6B7" Association="Self.FK__OrderMapp__CommI__49C3F6B7">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__Indus__5AEE82B9" Association="Self.FK__OrderMapp__Indus__5AEE82B9">
+            <End Role="Industry" EntitySet="Industry" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__MemID__4F7CD00D" Association="Self.FK__OrderMapp__MemID__4F7CD00D">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__OrdID__59063A47" Association="Self.FK__OrderMapp__OrdID__59063A47">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photo__MemID__5070F446" Association="Self.FK__Photo__MemID__5070F446">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountsMapping_Order" Association="Self.FK_AccountsMapping_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Member" Association="Self.FK_Order_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STORY_Test6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ActID" />
+          </Key>
+          <Property Name="ActID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="AccountsMapping" Relationship="Self.FK__AccountsM__ActID__5812160E" FromRole="Accounts" ToRole="AccountsMapping" />
+        </EntityType>
+        <EntityType Name="AccountsMapping">
+          <Key>
+            <PropertyRef Name="ActID" />
+            <PropertyRef Name="OrdID" />
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="ActID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrdID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IndustryID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransactionTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__AccountsM__ActID__5812160E" FromRole="AccountsMapping" ToRole="Accounts" />
+          <NavigationProperty Name="Industry" Relationship="Self.FK__AccountsM__Indus__5BE2A6F2" FromRole="AccountsMapping" ToRole="Industry" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_AccountsMapping_Order" FromRole="AccountsMapping" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminAccount" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPwd" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Authority" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Announcement" Relationship="Self.FK__Announcem__Admin__571DF1D5" FromRole="Administrator" ToRole="Announcement" />
+          <NavigationProperty Name="CommodityReportMapping" Relationship="Self.FK__Commodity__Admin__5441852A" FromRole="Administrator" ToRole="CommodityReportMapping" />
+          <NavigationProperty Name="MemberReportMapping" Relationship="Self.FK__MemberRep__Admin__534D60F1" FromRole="Administrator" ToRole="MemberReportMapping" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PostCont" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK__Announcem__Admin__571DF1D5" FromRole="Announcement" ToRole="Administrator" />
+        </EntityType>
+        <EntityType Name="Commodity">
+          <Key>
+            <PropertyRef Name="CommID" />
+          </Key>
+          <Property Name="CommID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Story" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InitDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CommodityEvaluation" Relationship="Self.FK__Commodity__CommI__47DBAE45" FromRole="Commodity" ToRole="CommodityEvaluation" />
+          <NavigationProperty Name="CommodityReport" Relationship="Self.FK__Commodity__CommI__48CFD27E" FromRole="Commodity" ToRole="CommodityReport" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Commodity__MemID__4E88ABD4" FromRole="Commodity" ToRole="Member" />
+          <NavigationProperty Name="Favourite" Relationship="Self.FK__Favourite__CommI__4AB81AF0" FromRole="Commodity" ToRole="Favourite" />
+          <NavigationProperty Name="OrderMapping" Relationship="Self.FK__OrderMapp__CommI__49C3F6B7" FromRole="Commodity" ToRole="OrderMapping" />
+        </EntityType>
+        <EntityType Name="CommodityEvaluation">
+          <Key>
+            <PropertyRef Name="CommEltID" />
+          </Key>
+          <Property Name="CommEltID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Commodity" Relationship="Self.FK__Commodity__CommI__47DBAE45" FromRole="CommodityEvaluation" ToRole="Commodity" />
+        </EntityType>
+        <EntityType Name="CommodityReport">
+          <Key>
+            <PropertyRef Name="CommRepID" />
+          </Key>
+          <Property Name="CommRepID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommRepFactor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommRepDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Commodity" Relationship="Self.FK__Commodity__CommI__48CFD27E" FromRole="CommodityReport" ToRole="Commodity" />
+          <NavigationProperty Name="CommodityReportMapping" Relationship="Self.FK__Commodity__CommR__5535A963" FromRole="CommodityReport" ToRole="CommodityReportMapping" />
+        </EntityType>
+        <EntityType Name="CommodityReportMapping">
+          <Key>
+            <PropertyRef Name="CommRepID" />
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="CommRepID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AcceptDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK__Commodity__Admin__5441852A" FromRole="CommodityReportMapping" ToRole="Administrator" />
+          <NavigationProperty Name="CommodityReport" Relationship="Self.FK__Commodity__CommR__5535A963" FromRole="CommodityReportMapping" ToRole="CommodityReport" />
+        </EntityType>
+        <EntityType Name="Favourite">
+          <Key>
+            <PropertyRef Name="FavouriteID" />
+          </Key>
+          <Property Name="FavouriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Commodity" Relationship="Self.FK__Favourite__CommI__4AB81AF0" FromRole="Favourite" ToRole="Commodity" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Favourite__MemID__4D94879B" FromRole="Favourite" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IndustryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AccountsMapping" Relationship="Self.FK__AccountsM__Indus__5BE2A6F2" FromRole="Industry" ToRole="AccountsMapping" />
+          <NavigationProperty Name="OrderMapping" Relationship="Self.FK__OrderMapp__Indus__5AEE82B9" FromRole="Industry" ToRole="OrderMapping" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemID" />
+          </Key>
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InitDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Commodity" Relationship="Self.FK__Commodity__MemID__4E88ABD4" FromRole="Member" ToRole="Commodity" />
+          <NavigationProperty Name="Favourite" Relationship="Self.FK__Favourite__MemID__4D94879B" FromRole="Member" ToRole="Favourite" />
+          <NavigationProperty Name="MemberEvaluation" Relationship="Self.FK__MemberEva__MemID__4BAC3F29" FromRole="Member" ToRole="MemberEvaluation" />
+          <NavigationProperty Name="MemberReport" Relationship="Self.FK__MemberRep__MemID__4CA06362" FromRole="Member" ToRole="MemberReport" />
+          <NavigationProperty Name="MessageMapping" Relationship="Self.FK__MessageMa__MemID__5165187F" FromRole="Member" ToRole="MessageMapping" />
+          <NavigationProperty Name="MessageReply" Relationship="Self.FK__MessageRe__MemID__52593CB8" FromRole="Member" ToRole="MessageReply" />
+          <NavigationProperty Name="OrderMapping" Relationship="Self.FK__OrderMapp__MemID__4F7CD00D" FromRole="Member" ToRole="OrderMapping" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK__Photo__MemID__5070F446" FromRole="Member" ToRole="Photo" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Member" FromRole="Member" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="MemberEvaluation">
+          <Key>
+            <PropertyRef Name="MemEltID" />
+          </Key>
+          <Property Name="MemEltID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__MemberEva__MemID__4BAC3F29" FromRole="MemberEvaluation" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MemberReport">
+          <Key>
+            <PropertyRef Name="MemRepID" />
+          </Key>
+          <Property Name="MemRepID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemRepFactor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemRepDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__MemberRep__MemID__4CA06362" FromRole="MemberReport" ToRole="Member" />
+          <NavigationProperty Name="MemberReportMapping" Relationship="Self.FK__MemberRep__MemRe__5629CD9C" FromRole="MemberReport" ToRole="MemberReportMapping" />
+        </EntityType>
+        <EntityType Name="MemberReportMapping">
+          <Key>
+            <PropertyRef Name="MemRepID" />
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="MemRepID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AcceptDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK__MemberRep__Admin__534D60F1" FromRole="MemberReportMapping" ToRole="Administrator" />
+          <NavigationProperty Name="MemberReport" Relationship="Self.FK__MemberRep__MemRe__5629CD9C" FromRole="MemberReportMapping" ToRole="MemberReport" />
+        </EntityType>
+        <EntityType Name="MessageMapping">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="MemID" />
+            <PropertyRef Name="ReplyID" />
+          </Key>
+          <Property Name="MessageID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplyID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageCont" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__MessageMa__MemID__5165187F" FromRole="MessageMapping" ToRole="Member" />
+          <NavigationProperty Name="MessageReply" Relationship="Self.FK__MessageMa__Reply__5CD6CB2B" FromRole="MessageMapping" ToRole="MessageReply" />
+        </EntityType>
+        <EntityType Name="MessageReply">
+          <Key>
+            <PropertyRef Name="ReplyID" />
+          </Key>
+          <Property Name="ReplyID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplyCont" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__MessageRe__MemID__52593CB8" FromRole="MessageReply" ToRole="Member" />
+          <NavigationProperty Name="MessageMapping" Relationship="Self.FK__MessageMa__Reply__5CD6CB2B" FromRole="MessageReply" ToRole="MessageMapping" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrdID" />
+          </Key>
+          <Property Name="OrdID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrdAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="OrdTotal" Type="Int32" Nullable="false" />
+          <Property Name="Transport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountsMapping" Relationship="Self.FK_AccountsMapping_Order" FromRole="Order" ToRole="AccountsMapping" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Order_Member" FromRole="Order" ToRole="Member" />
+          <NavigationProperty Name="OrderMapping" Relationship="Self.FK__OrderMapp__OrdID__59063A47" FromRole="Order" ToRole="OrderMapping" />
+        </EntityType>
+        <EntityType Name="OrderMapping">
+          <Key>
+            <PropertyRef Name="OrdID" />
+            <PropertyRef Name="MemID" />
+            <PropertyRef Name="CommID" />
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="OrdID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IndustryID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShipDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CommName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrdAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="OrdTotal" Type="Int32" Nullable="false" />
+          <Property Name="IsApproved" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Int32" />
+          <NavigationProperty Name="Commodity" Relationship="Self.FK__OrderMapp__CommI__49C3F6B7" FromRole="OrderMapping" ToRole="Commodity" />
+          <NavigationProperty Name="Industry" Relationship="Self.FK__OrderMapp__Indus__5AEE82B9" FromRole="OrderMapping" ToRole="Industry" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__OrderMapp__MemID__4F7CD00D" FromRole="OrderMapping" ToRole="Member" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderMapp__OrdID__59063A47" FromRole="OrderMapping" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Name="PhotoID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MemID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Photo__MemID__5070F446" FromRole="Photo" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Visitors">
+          <Key>
+            <PropertyRef Name="VisitorsID" />
+          </Key>
+          <Property Name="VisitorsID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ArrivalsTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BrowseTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LeaveTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK__AccountsM__ActID__5812160E">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ActID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="ActID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccountsM__Indus__5BE2A6F2">
+          <End Role="Industry" Type="Self.Industry" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountsMapping_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="AccountsMapping" Type="Self.AccountsMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdID" />
+            </Principal>
+            <Dependent Role="AccountsMapping">
+              <PropertyRef Name="OrdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Announcem__Admin__571DF1D5">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Announcement">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__Admin__5441852A">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="CommodityReportMapping" Type="Self.CommodityReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="CommodityReportMapping">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__Admin__534D60F1">
+          <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+          <End Role="MemberReportMapping" Type="Self.MemberReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrator">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="MemberReportMapping">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommI__47DBAE45">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="CommodityEvaluation" Type="Self.CommodityEvaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="CommodityEvaluation">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommI__48CFD27E">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="CommodityReport" Type="Self.CommodityReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="CommodityReport">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__MemID__4E88ABD4">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Commodity">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favourite__CommI__4AB81AF0">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="Favourite">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__CommI__49C3F6B7">
+          <End Role="Commodity" Type="Self.Commodity" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="CommID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="CommID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Commodity__CommR__5535A963">
+          <End Role="CommodityReport" Type="Self.CommodityReport" Multiplicity="1" />
+          <End Role="CommodityReportMapping" Type="Self.CommodityReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommodityReport">
+              <PropertyRef Name="CommRepID" />
+            </Principal>
+            <Dependent Role="CommodityReportMapping">
+              <PropertyRef Name="CommRepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Favourite__MemID__4D94879B">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Favourite">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__Indus__5AEE82B9">
+          <End Role="Industry" Type="Self.Industry" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberEva__MemID__4BAC3F29">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberEvaluation" Type="Self.MemberEvaluation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MemberEvaluation">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__MemID__4CA06362">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberReport" Type="Self.MemberReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MemberReport">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageMa__MemID__5165187F">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MessageMapping" Type="Self.MessageMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MessageMapping">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageRe__MemID__52593CB8">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MessageReply" Type="Self.MessageReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="MessageReply">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__MemID__4F7CD00D">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photo__MemID__5070F446">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberRep__MemRe__5629CD9C">
+          <End Role="MemberReport" Type="Self.MemberReport" Multiplicity="1" />
+          <End Role="MemberReportMapping" Type="Self.MemberReportMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberReport">
+              <PropertyRef Name="MemRepID" />
+            </Principal>
+            <Dependent Role="MemberReportMapping">
+              <PropertyRef Name="MemRepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MessageMa__Reply__5CD6CB2B">
+          <End Role="MessageReply" Type="Self.MessageReply" Multiplicity="1" />
+          <End Role="MessageMapping" Type="Self.MessageMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageReply">
+              <PropertyRef Name="ReplyID" />
+            </Principal>
+            <Dependent Role="MessageMapping">
+              <PropertyRef Name="ReplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderMapp__OrdID__59063A47">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderMapping" Type="Self.OrderMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdID" />
+            </Principal>
+            <Dependent Role="OrderMapping">
+              <PropertyRef Name="OrdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="STORY_Test6Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+          <EntitySet Name="AccountsMapping" EntityType="Self.AccountsMapping" />
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" />
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" />
+          <EntitySet Name="Commodity" EntityType="Self.Commodity" />
+          <EntitySet Name="CommodityEvaluation" EntityType="Self.CommodityEvaluation" />
+          <EntitySet Name="CommodityReport" EntityType="Self.CommodityReport" />
+          <EntitySet Name="CommodityReportMapping" EntityType="Self.CommodityReportMapping" />
+          <EntitySet Name="Favourite" EntityType="Self.Favourite" />
+          <EntitySet Name="Industry" EntityType="Self.Industry" />
+          <EntitySet Name="Member" EntityType="Self.Member" />
+          <EntitySet Name="MemberEvaluation" EntityType="Self.MemberEvaluation" />
+          <EntitySet Name="MemberReport" EntityType="Self.MemberReport" />
+          <EntitySet Name="MemberReportMapping" EntityType="Self.MemberReportMapping" />
+          <EntitySet Name="MessageMapping" EntityType="Self.MessageMapping" />
+          <EntitySet Name="MessageReply" EntityType="Self.MessageReply" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="OrderMapping" EntityType="Self.OrderMapping" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Visitors" EntityType="Self.Visitors" />
+          <AssociationSet Name="FK__AccountsM__ActID__5812160E" Association="Self.FK__AccountsM__ActID__5812160E">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccountsM__Indus__5BE2A6F2" Association="Self.FK__AccountsM__Indus__5BE2A6F2">
+            <End Role="Industry" EntitySet="Industry" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountsMapping_Order" Association="Self.FK_AccountsMapping_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="AccountsMapping" EntitySet="AccountsMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Announcem__Admin__571DF1D5" Association="Self.FK__Announcem__Admin__571DF1D5">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="Announcement" EntitySet="Announcement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__Admin__5441852A" Association="Self.FK__Commodity__Admin__5441852A">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="CommodityReportMapping" EntitySet="CommodityReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__Admin__534D60F1" Association="Self.FK__MemberRep__Admin__534D60F1">
+            <End Role="Administrator" EntitySet="Administrator" />
+            <End Role="MemberReportMapping" EntitySet="MemberReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommI__47DBAE45" Association="Self.FK__Commodity__CommI__47DBAE45">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="CommodityEvaluation" EntitySet="CommodityEvaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommI__48CFD27E" Association="Self.FK__Commodity__CommI__48CFD27E">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="CommodityReport" EntitySet="CommodityReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__MemID__4E88ABD4" Association="Self.FK__Commodity__MemID__4E88ABD4">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Commodity" EntitySet="Commodity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favourite__CommI__4AB81AF0" Association="Self.FK__Favourite__CommI__4AB81AF0">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="Favourite" EntitySet="Favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__CommI__49C3F6B7" Association="Self.FK__OrderMapp__CommI__49C3F6B7">
+            <End Role="Commodity" EntitySet="Commodity" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Commodity__CommR__5535A963" Association="Self.FK__Commodity__CommR__5535A963">
+            <End Role="CommodityReport" EntitySet="CommodityReport" />
+            <End Role="CommodityReportMapping" EntitySet="CommodityReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Favourite__MemID__4D94879B" Association="Self.FK__Favourite__MemID__4D94879B">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Favourite" EntitySet="Favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__Indus__5AEE82B9" Association="Self.FK__OrderMapp__Indus__5AEE82B9">
+            <End Role="Industry" EntitySet="Industry" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberEva__MemID__4BAC3F29" Association="Self.FK__MemberEva__MemID__4BAC3F29">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberEvaluation" EntitySet="MemberEvaluation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__MemID__4CA06362" Association="Self.FK__MemberRep__MemID__4CA06362">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberReport" EntitySet="MemberReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageMa__MemID__5165187F" Association="Self.FK__MessageMa__MemID__5165187F">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MessageMapping" EntitySet="MessageMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageRe__MemID__52593CB8" Association="Self.FK__MessageRe__MemID__52593CB8">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MessageReply" EntitySet="MessageReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__MemID__4F7CD00D" Association="Self.FK__OrderMapp__MemID__4F7CD00D">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photo__MemID__5070F446" Association="Self.FK__Photo__MemID__5070F446">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Member" Association="Self.FK_Order_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberRep__MemRe__5629CD9C" Association="Self.FK__MemberRep__MemRe__5629CD9C">
+            <End Role="MemberReport" EntitySet="MemberReport" />
+            <End Role="MemberReportMapping" EntitySet="MemberReportMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MessageMa__Reply__5CD6CB2B" Association="Self.FK__MessageMa__Reply__5CD6CB2B">
+            <End Role="MessageReply" EntitySet="MessageReply" />
+            <End Role="MessageMapping" EntitySet="MessageMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderMapp__OrdID__59063A47" Association="Self.FK__OrderMapp__OrdID__59063A47">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderMapping" EntitySet="OrderMapping" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(STORY_Test6Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(STORY_Test6Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STORY_Test6ModelStoreContainer" CdmEntityContainer="STORY_Test6Entities3">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountsMapping">
+            <EntityTypeMapping TypeName="STORY_Test6Model.AccountsMapping">
+              <MappingFragment StoreEntitySet="AccountsMapping">
+                <ScalarProperty Name="ActID" ColumnName="ActID" />
+                <ScalarProperty Name="OrdID" ColumnName="OrdID" />
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administrator">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Administrator">
+              <MappingFragment StoreEntitySet="Administrator">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+                <ScalarProperty Name="AdminPwd" ColumnName="AdminPwd" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcement">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Announcement">
+              <MappingFragment StoreEntitySet="Announcement">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="PostTime" ColumnName="PostTime" />
+                <ScalarProperty Name="PostCont" ColumnName="PostCont" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commodity">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Commodity">
+              <MappingFragment StoreEntitySet="Commodity">
+                <ScalarProperty Name="CommID" ColumnName="CommID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="CommName" ColumnName="CommName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Story" ColumnName="Story" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="InitDate" ColumnName="InitDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommodityEvaluation">
+            <EntityTypeMapping TypeName="STORY_Test6Model.CommodityEvaluation">
+              <MappingFragment StoreEntitySet="CommodityEvaluation">
+                <ScalarProperty Name="CommEltID" ColumnName="CommEltID" />
+                <ScalarProperty Name="CommID" ColumnName="CommID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommodityReport">
+            <EntityTypeMapping TypeName="STORY_Test6Model.CommodityReport">
+              <MappingFragment StoreEntitySet="CommodityReport">
+                <ScalarProperty Name="CommRepID" ColumnName="CommRepID" />
+                <ScalarProperty Name="CommID" ColumnName="CommID" />
+                <ScalarProperty Name="CommRepFactor" ColumnName="CommRepFactor" />
+                <ScalarProperty Name="CommRepDate" ColumnName="CommRepDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommodityReportMapping">
+            <EntityTypeMapping TypeName="STORY_Test6Model.CommodityReportMapping">
+              <MappingFragment StoreEntitySet="CommodityReportMapping">
+                <ScalarProperty Name="CommRepID" ColumnName="CommRepID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favourite">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Favourite">
+              <MappingFragment StoreEntitySet="Favourite">
+                <ScalarProperty Name="FavouriteID" ColumnName="FavouriteID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="CommID" ColumnName="CommID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Industry">
+              <MappingFragment StoreEntitySet="Industry">
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="InitDate" ColumnName="InitDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberEvaluation">
+            <EntityTypeMapping TypeName="STORY_Test6Model.MemberEvaluation">
+              <MappingFragment StoreEntitySet="MemberEvaluation">
+                <ScalarProperty Name="MemEltID" ColumnName="MemEltID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberReport">
+            <EntityTypeMapping TypeName="STORY_Test6Model.MemberReport">
+              <MappingFragment StoreEntitySet="MemberReport">
+                <ScalarProperty Name="MemRepID" ColumnName="MemRepID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="MemRepFactor" ColumnName="MemRepFactor" />
+                <ScalarProperty Name="MemRepDate" ColumnName="MemRepDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberReportMapping">
+            <EntityTypeMapping TypeName="STORY_Test6Model.MemberReportMapping">
+              <MappingFragment StoreEntitySet="MemberReportMapping">
+                <ScalarProperty Name="MemRepID" ColumnName="MemRepID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageMapping">
+            <EntityTypeMapping TypeName="STORY_Test6Model.MessageMapping">
+              <MappingFragment StoreEntitySet="MessageMapping">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="ReplyID" ColumnName="ReplyID" />
+                <ScalarProperty Name="MessageCont" ColumnName="MessageCont" />
+                <ScalarProperty Name="MessageTime" ColumnName="MessageTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageReply">
+            <EntityTypeMapping TypeName="STORY_Test6Model.MessageReply">
+              <MappingFragment StoreEntitySet="MessageReply">
+                <ScalarProperty Name="ReplyID" ColumnName="ReplyID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="ReplyCont" ColumnName="ReplyCont" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrdID" ColumnName="OrdID" />
+                <ScalarProperty Name="OrdAmount" ColumnName="OrdAmount" />
+                <ScalarProperty Name="OrdTotal" ColumnName="OrdTotal" />
+                <ScalarProperty Name="Transport" ColumnName="Transport" />
+                <ScalarProperty Name="OrdDate" ColumnName="OrdDate" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderMapping">
+            <EntityTypeMapping TypeName="STORY_Test6Model.OrderMapping">
+              <MappingFragment StoreEntitySet="OrderMapping">
+                <ScalarProperty Name="OrdID" ColumnName="OrdID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="CommID" ColumnName="CommID" />
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="CommName" ColumnName="CommName" />
+                <ScalarProperty Name="OrdAmount" ColumnName="OrdAmount" />
+                <ScalarProperty Name="OrdTotal" ColumnName="OrdTotal" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photo">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="STORY_Test6Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitors">
+            <EntityTypeMapping TypeName="STORY_Test6Model.Visitors">
+              <MappingFragment StoreEntitySet="Visitors">
+                <ScalarProperty Name="VisitorsID" ColumnName="VisitorsID" />
+                <ScalarProperty Name="ArrivalsTime" ColumnName="ArrivalsTime" />
+                <ScalarProperty Name="BrowseTime" ColumnName="BrowseTime" />
+                <ScalarProperty Name="LeaveTime" ColumnName="LeaveTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="STORY_Test6Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="STORY_Test6Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="STORY_Test6Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="STORY_Test6Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="STORY_Test6Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="STORY_Test6Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="STORY_Test6Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="STORY_Test6Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="STORY_Test6Model.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

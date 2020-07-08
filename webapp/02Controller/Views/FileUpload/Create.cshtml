@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@*//02-4-9 修改title文字與加入form內容*@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form method="post" action="@Url.Action("Create")" enctype="multipart/form-data">
+        請選擇您要上傳的檔案：
+        <input id="photo" name="photo" type="file" />
+
+        <input id="Submit1" type="submit" value="上傳檔案" />
+
+    </form>
+   
+</body>
+</html>

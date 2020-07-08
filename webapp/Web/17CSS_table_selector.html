@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #tb1{
+            border:10px solid;
+            width:300px;
+            height:250px;
+            margin:auto;
+        }
+        #tb1 td,#tb1 th{
+            border:2px solid;
+        }
+
+            #tb1>thead th {
+                /*background-color:black;
+                 color:white;*/
+                border: 5px dotted red;
+            }
+        #tb1 tbody tr>td+td{
+            background-color:pink;
+        }
+         #tb1 tbody>tr:first-child>td:first-child~td{
+            border: 5px dotted green;
+        }
+
+         a:link{
+             color:gray;
+             text-decoration:none;
+         }
+         a:active{
+             background-color:black;
+             color:yellow;
+             font-size:1.5em;
+         }
+         a:visited{
+             color:#ff6a00;
+         }
+         a:hover{
+             text-decoration:underline;
+         }
+    </style>
+
+</head>
+<body>
+
+    <h1><a href="#qwwe">test</a></h1>
+
+    <table id="tb1">
+
+        <tfoot>
+            <tr>
+                <td colspan="3">製表人:王小明</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>張三</td>
+                <td>88</td>
+                <td>49</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>96</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>78</td>
+                <td>94</td>
+            </tr>
+        </tbody>
+        <caption>成績單</caption>
+
+        <thead>
+
+            <tr>
+                <th>姓名</th>
+                <th>國文</th>
+                <th>數學</th>
+            </tr>
+        </thead>
+    </table>
+
+
+    <hr />
+
+    <table id="tb2">
+
+        <tfoot>
+            <tr>
+                <td colspan="3">製表人:王小明</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>張三</td>
+                <td>88</td>
+                <td>49</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>96</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>78</td>
+                <td>94</td>
+            </tr>
+        </tbody>
+        <caption>成績單</caption>
+
+        <thead>
+
+            <tr>
+                <th>姓名</th>
+                <th>國文</th>
+                <th>數學</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>

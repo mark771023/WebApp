@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        #tb1{
+            width:1200px;
+            margin:auto;
+            border:5px double #0094ff
+        }
+
+         #tb1>thead th{
+             background-color:#ff0000;
+             color:#00ff21;
+
+         }
+
+         #tb1>tbody>tr>:nth-child(2n+1){
+             background-color:#ffd800;
+
+         }
+
+          #tb1>tbody>tr>:hover{
+             background-color:#af15dc;
+
+         }
+
+    </style>
+
+</head>
+<body>
+    <table id="tb1">
+       
+    </table>
+
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $.ajax({
+            type: 'get',
+            url: 'MyData.json',
+            format: 'json',
+            success: function (data) {
+                //alert('連接成功')
+                $('#tb1').append(" <thead><tr><th>牛隻追朔號碼</th><th>屠宰日期</th><th>畜牧場名稱</th><th>畜牧場負責人</th><th>畜牧場場址</th><th>畜牧場登記證號</th><th>更新日期</th></tr></thead>");
+                $('#tb1').append("<tbody>");
+
+                for (i = 0; i < data.length; i++) {
+                    $('#tb1').append("<tr><th>"+data[i].CowTracecode+"</th><th>"+data[i].SlaughterDate+"</th><th>"+data[i].FarmName+"</th><th>"+data[i].FarmPrincipal+"</th><th>"+data[i].FarmAdd+"</th><th>"+data[i].FarmID+"</th><th>"+data[i].cDate+"</th></tr>");
+                    }
+                 $('#tb1').append("<tbody>");
+                },
+            error: function () { alert('連接失敗') }
+        });
+
+    </script>
+</body>
+</html>

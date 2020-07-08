@@ -1,0 +1,26 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<_03View.Models.Nightmarket>
+
+
+@{
+    ViewBag.Title = "南部地區各大夜市";
+}
+
+<h2>南部地區各大夜市</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="~/images/@(item.Id).JPG" class="img-thumbnail" />
+                <div class="caption">
+                    <h2>@item.Name</h2>
+                    <p>@item.Address</p>
+                    <p> <a href="https://www.google.com/maps/place/@item.Address" target="_blank" class="btn btn-danger">查看地圖</a></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

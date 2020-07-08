@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+
+    <style>
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+            .bg img {
+                min-height: 100%;
+                width: 100%;
+            }
+
+        #bkcover {
+            position: absolute;
+            overflow: auto;
+            cursor: pointer;
+            width: 600px;
+            left: 200px;
+            top: 25px;
+        }
+
+            /*#bkcover img {
+                min-height: 100%;
+                width: 100%;
+            }*/
+
+        #bkopen {
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 0px;
+            width: 1800px;
+            height: 900px;
+            /*margin: 5px;*/
+            overflow: auto;
+            cursor: pointer;
+            display: none;
+            transform-style:preserve-3d;
+            transform-origin:right;
+
+        }
+
+            /*#bkopen img {
+                min-height: 100%;
+                width: 100%;
+            }*/
+
+        #left {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 550px;
+            left: 50px;
+            display: none;
+            border-radius: 50%;
+        }
+
+        #right {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 550px;
+            left: 1190px;
+            display: none;
+            border-radius: 50%;
+        }
+
+        #index {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 60px;
+            left: 50px;
+            display: none;
+            border-radius: 50%;
+            color:white;
+            background-color:black;
+        }
+
+        #memberzone {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 80px;
+            left: 50px;
+            display: none;
+            border-radius: 50%;
+            color: white;
+            background-color: black;
+        }
+
+        #about us {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 100px;
+            left: 50px;
+            display: none;
+            border-radius: 50%;
+            color: white;
+            background-color: black;
+        }
+
+        #contect us {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            cursor: pointer;
+            /*text-align: right;*/
+            top: 120px;
+            left: 50px;
+            display: none;
+            border-radius: 50%;
+            color: white;
+            background-color: black;
+        }
+
+
+    </style>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <main>
+
+        <div class="bg">
+            <img src="image/background1.jpg" />
+        </div>
+
+        <header>
+            <img src="image/02.jpg" id="bkcover" alt="banner" class="img-fluid "/>
+            <img src="image/05.PNG" id="bkopen" alt="banner" class="img-fluid "/>
+
+            <input id="left" type="button" value="上一頁" class="btn btn-primary img-fluid" />
+            <input id="right" type="button" value="下一頁" class="btn btn-primary img-fluid" />
+
+            <input id="index" type="button" value="STORY" class="btn btn-block btn-outline-info" />
+            <input id="memberzone" type="button" value="會員專區" class="btn btn-block " />
+            <input id="about us" type="button" value="關於我們" class="btn btn-block " />
+            <input id="contect us" type="button" value="聯絡我們" class="btn btn-block " />
+
+
+        </header>
+
+      
+
+        <aside>
+            <nav>
+
+            </nav>
+        </aside>
+
+        <article></article>
+
+        <footer></footer>
+
+    </main>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+
+        //$('#bkcover').hide();
+        //$('#bkopen').hide();
+
+        $('#bkcover').animate({ 'left': '1100px', 'opacity': '1' }, 3000);
+         
+
+        $('#bkcover').click(function () {
+            $('#bkopen').fadeIn(2000);
+            $('#left').fadeIn(3000);
+            $('#right').fadeIn(3000);
+            $('#index').fadeIn(3000);
+            $('#memberzone').fadeIn(3000);
+            $('#about us').fadeIn(3000);
+            $('#contect us').fadeIn(3000);
+
+
+
+
+        });
+
+     
+        $("#right").click(function () {
+
+            });
+
+    </script>
+
+
+
+</body>
+</html>

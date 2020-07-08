@@ -1,0 +1,65 @@
+﻿@model Story_Test6.Models.Administrator
+
+@{
+    ViewBag.Title = "刪除";
+}
+
+<h2>刪除</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Administrator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Authority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Authority)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="刪除" class="btn btn-default" /> |
+            @Html.ActionLink("返回管理員資料表", "Index")
+        </div>
+    }
+</div>

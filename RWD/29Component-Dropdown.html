@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="Content/MyStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <!--基本型-->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                Menu
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Contact</a>
+                <a class="dropdown-item" href="#">About</a>
+            </div>
+        </div>
+
+        <hr />
+        <div class="btn-group">
+            <button class="btn btn-danger">
+                Menu
+            </button>
+            <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+            </button>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Contact</a>
+                <a class="dropdown-item" href="#">About</a>
+            </div>
+        </div>
+
+        <hr />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <!--選單往上出現-->
+        <div class="btn-group dropup">
+            <button class="btn btn-danger">
+                Menu
+            </button>
+            <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+            </button>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Contact</a>
+                <a class="dropdown-item" href="#">About</a>
+            </div>
+        </div>
+
+
+        <hr />
+
+        <!--選單往左側出現-->
+
+        <div class="btn-group dropleft">
+            <button class="btn btn-danger">
+                Menu
+            </button>
+            <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+            </button>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Contact</a>
+                <a class="dropdown-item" href="#">About</a>
+            </div>
+        </div>
+        <hr />
+
+        <!--Responsive選單的對齊-->
+        <div class="dropdown" style="border:1px solid">
+            <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-display="static">
+                大螢幕時選單向右靠,一般大小則為預設對齊方式
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-lg-right">
+                <a href="#" class="dropdown-item">Home</a>
+                <a href="#" class="dropdown-item">Action</a>
+                <a href="#" class="dropdown-item">Booking</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">Contact</a>
+                <a href="#" class="dropdown-item">About</a>
+            </div>
+        </div>
+
+        <hr />
+
+        <!--與Form合併使用-->
+        <div class="dropdown" ">
+            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown" ">
+                登入系統
+            </button>
+
+            <div class="dropdown-menu">
+                <form class="p-4">
+
+                    <div class="form-group row">
+                        <label for="email2" class="col-sm-3">E-mail</label>
+                        <div class="col-sm-9">
+                            <input id="email2" name="email2" type="text" class="form-control" placeholder="Enter Your Email...." required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="pwd2" class="col-sm-3">Password</label>
+                        <div class="col-sm-9">
+                            <input id="pwd2" name="pwd2" type="password" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <legend class="col-sm-3 col-form-label">性別</legend>
+                            <div class="col-sm-9">
+                                <div class="form-check">
+                                    <input id="male" name="gender" type="radio" class="form-check-input" />
+                                    <label for="male">男</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="female" name="gender" type="radio" class="form-check-input" />
+                                    <label for="female">女</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group form-check">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-9">
+                                <input id="remember" type="checkbox" class="form-check-input" />
+                                <label for="remember" class="form-check-label">記住我</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-9">
+                            <input id="Submit1" type="submit" value="Login" class="btn btn-success" />
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        <hr />
+        <!--與Button合併使用-->
+        <div class="btn-group">
+            <button class="btn btn-light">Muen 1</button>
+            <button class="btn btn-light">Muen 2</button>
+            <div class="btn-group">
+                <button class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                    Menu 3
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Contact</a>
+                    <a class="dropdown-item" href="#">About</a>
+                </div>
+            </div>
+            <button class="btn btn-light">Muen 4</button>
+            <button class="btn btn-light">Muen 5</button>
+            <button class="btn btn-light">Muen 6</button>
+
+        </div>
+
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+
+    </div>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

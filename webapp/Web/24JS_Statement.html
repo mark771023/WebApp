@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        var a = 10;
+        a = 20; //指定運算,a=20
+        a = a + 10; //加法運算與指定運算(a=20+10), a=30
+        a += 5; //即是a=a+5,加法運算與指定運算(a=30+5), a=35
+        a -= 5; //即是a=a-5,減法運算與指定運算(a=35-5), a=30
+        a *= 10; //即是a=a*10,乘法運算與指定運算(a=30*10), a=300
+        a /= 5; //即是a=a/5,除法運算與指定運算(a=300/5), a=60
+        a++;//即是a=a+1, a+=1,加法運算與指定運算(a=60+1), a=61
+
+        document.write("a=" + a+"<hr>");
+        ////////////////////////////////////
+        var b = 999999999, c = 888888888;
+
+
+        document.write("b+c=" + (b + c)+"<br>");
+        document.write("b-c=" + (b - c) + "<br>");
+        document.write("b*c=" + b * c + "<br>");
+        document.write("b/c=" + b / c + "<br>");
+        /////////////////////////////////////////////
+
+        //a = 998585568678, b = 778255465467767879944
+        a = 7.77, b = 0.8;
+        document.write("a=" + a);
+        document.write("b=" + b);
+        document.write("<hr>");
+        a = a + b;
+        b = a - b;
+        a = a - b;
+      
+        document.write("a=" + a+"<br>");
+        document.write("b=" + b);
+        /////////////////////////////////
+        document.write("<hr>");
+
+        var strName = "Jack", intNumber = 12345, bolGender = true;
+        var result;
+        document.write("result:" + result + "<br>");
+        result = strName + bolGender;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        result = strName + intNumber;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        result = intNumber + strName;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        result = bolGender + strName;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        result = bolGender + intNumber;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        result = intNumber+bolGender;
+        document.write("result:" + result + "<br>");
+        document.write("DataType:" + typeof (result) + "<br>");
+
+        document.write("<hr>");
+        ///////////////////////////////////////////////////////////
+        document.write(parseInt("123") + "<br>");
+        document.write(parseInt(123.55) + "<br>");
+        document.write(parseInt("3.2hhhh")+"<br>");
+        document.write(parseInt("3hhhh")+"<br>");
+        document.write(parseInt("hhhh123")+"<br>");
+        document.write(parseInt("0123") + "<br>");
+        document.write(parseInt("123", 8) + "<br>");
+         document.write(parseInt("123",16) + "<br>");
+        document.write(parseInt("1239D", 8) + "<br>");
+        document.write(parseInt("9123", 8) + "<br>");
+
+        document.write(parsefloat(99) + "<br>");
+        document.write(parseFloat("3.654") + "<br>");
+        /////////////////////////////////////////////////////
+        q = 100, w = 100;
+
+        document.write(eval(5 > 3) + "<br>");
+        document.write(eval(w == q) + "<br>");
+        document.write(eval("w==q") + "<br>");
+
+
+    </script>
+</body>
+</html>

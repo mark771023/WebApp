@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Story_Test12.Models.Order>
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+<hr/>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+    <h2>訂單明細</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+
+        <th>
+            訂單編號
+            @*@Html.DisplayNameFor(model => model.OrdGuid)*@
+        </th>
+        <th>
+            會員帳號
+            @*@Html.DisplayNameFor(model => model.Member.Account)*@
+        </th>
+        <th>
+            產品名稱
+            @*@Html.DisplayNameFor(model => model.CommName)*@
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>*@
+        <th>
+            價格
+            @*@Html.DisplayNameFor(model => model.Price)*@
+        </th>
+        <th>
+            數量
+            @*@Html.DisplayNameFor(model => model.Total)*@
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Commodity.MemID)
+        </th>*@
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.OrdGuid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Member.Account)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CommName)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.IsApproved)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Total)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.Commodity.MemID)
+    </td>*@
+
+<td>
+    @*@Html.ActionLink("Edit", "Edit", new { id=item.OrdID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.OrdID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.OrdID })*@
+
+</td>
+</tr>
+}
+
+</table>
+
+
+<form action="/" method="post">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("回到訂單列表", "OrderList", "Order", null, new { @class = "btn btn-primary" })
+
+        </div>
+    </div>
+</form>

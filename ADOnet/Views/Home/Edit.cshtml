@@ -1,0 +1,50 @@
+﻿@using System.Data
+@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "學生資料修改";
+
+    DataRow row = Model.Rows[0];
+}
+
+<h2>學生資料修改</h2>
+
+<form method="post" action="@Url.Action("Edit")">
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label for="fStuId" class="control-label col-md-2">學號</label>
+            <div class="col-md-10">
+                <input id="fStuId" name="fStuId" type="text" class="form-control" readonly value="@row["fStuId"]" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fName" class="control-label col-md-2">姓名:</label>
+            <div class="col-md-10">
+                <input id="fName" name="fName" type="text" class="form-control" required value="@row["fName"]" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fEmail" class="control-label col-md-2">E-mail:</label>
+            <div class="col-md-10">
+                <input id="fEmail" name="fEmail" type="text" class="form-control" required value="@row["fEmail"]" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fScore" class="control-label col-md-2">成績:</label>
+            <div class="col-md-10">
+                <input id="fScore" name="fScore" type="text" class="form-control" required value="@row["fScore"]" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <input id="Submit1" type="submit" value="儲存更新資料" class="btn btn-block btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+<p>
+
+
+    @Html.ActionLink("返回學生資料", "Index")
+</p>

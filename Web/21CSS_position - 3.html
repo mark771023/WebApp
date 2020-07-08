@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        main {
+            width: 770px;
+            margin: auto;
+            position:relative;
+        }
+
+        header {
+            width: 200px;
+        }
+         aside{
+            width:210px;
+            float: left;
+        }
+        article {
+            height:200px;
+            float: right;
+        }
+        footer {
+            clear:both
+        }
+        #ad1{
+            position:fixed;
+            top:0;
+            left:0;
+        }
+        #ad2{
+            position:absolute;
+            top:0;
+            right:0;
+            z-index:5;
+        }
+        #ad{
+            position:absolute;
+            top:20px;
+            left:124px;        
+        }
+        #ad>span{
+            background-color:pink;
+            color:red;
+            cursor:pointer;
+            font-size:0.5rem;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+    <main>
+        <header>
+            <img src="images/top.jpg" />
+        </header>
+        <aside>
+            <img src="images/left.jpg" />
+        </aside>
+        <article>
+            <img src="images/right.jpg" />
+        </article>
+        <footer>
+            <img src="images/bottom.jpg" />
+        </footer>
+
+        <div id="ad">
+            <span>&otimes;</span><br />
+            <img src="images/ad.jpg"  />
+        </div>
+    </main>
+
+    <img src="images/banner1.jpg" id="ad1"/>
+    <img src="images/banner2.jpg" id="ad2"/>
+    
+    <script>
+        var ad = document.getElementById("ad");
+        ad.children[0].addEventListener('click', function () {
+        ad.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

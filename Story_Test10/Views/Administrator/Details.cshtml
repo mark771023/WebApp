@@ -1,0 +1,50 @@
+﻿@model Story_Test10.Models.Administrator
+
+@{
+    ViewBag.Title = "詳細資料";
+}
+    <div class="container" style="height:100px;"></div>
+<h2>詳細資料</h2>
+
+<div>
+    <h4>Administrator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_mail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { AdminID = Model.AdminID }) |
+    @Html.ActionLink("返回管理員資料表", "Index")
+</p>

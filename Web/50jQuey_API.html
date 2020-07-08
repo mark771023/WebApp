@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        #tb1{
+            width:1200px;
+            margin:auto;
+            border:5px double #0094ff
+        }
+
+         #tb1>thead th{
+             background-color:#ff0000;
+             color:#00ff21;
+
+         }
+
+         #tb1>tbody>tr>:nth-child(2n+1){
+             background-color:#ffd800;
+
+         }
+
+          #tb1>tbody>tr>:hover{
+             background-color:#af15dc;
+
+         }
+
+    </style>
+
+</head>
+<body>
+    <table id="tb1">
+       
+    </table>
+
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        function updataTime() {
+
+      $.ajax({
+            type: 'get',
+            url: 'https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard?$format=JSON',
+            dataType: 'json',
+            success: function (data) {
+                alert('連接成功');
+                $('#tb1').append("<thead><tr><th>站名</th><th>車次</th><th>車種名稱</th><th>終點站</th><th>行車方向</th><th>山海線</th><th>誤點狀況</th></tr></thead>");
+                $('#tb1').append("<tbody>");
+
+                var d = "",t="",delay="";
+                
+                for (i = 0; i < data.length; i++) {
+                    d = data[i].Direction == 0 ? "順行" : "逆行";
+                    if (data[i].TripLine == 1) t = "山線"; else if (data[i].TripLine == 2) t = "海線"; else t = "不經山海線";
+                    if (data[i].DelayTime == 0) delay = data[i].DelayTime; else delay = "<span style='color:red'>" + data[i].DelayTime + "</span>";
+
+                    $('#tb1').append("<tr><td>"+data[i].StationName.Zh_tw+"</td><td>"+data[i].TrainNo+"</td><td>"+data[i].TrainTypeName.Zh_tw+"</td><td>"+data[i].EndingStationName.Zh_tw+"</td><td>"+d+"</td><td>"+t+"</td><td>"+delay+"</td></tr>");
+                }
+                $('#tb1').append("</tbody>");
+            }, 
+            error: function () { alert('連接失敗')}
+      });
+
+        setTimeout(updataTime, 120000);
+    }
+        updataTime();
+
+    </script>
+
+</body>
+</html>

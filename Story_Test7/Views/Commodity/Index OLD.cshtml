@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Story_Test7.Models.Commodity>
+
+@{
+    ViewBag.Title = "寶物列表";
+}
+
+<h2>寶物列表</h2>
+
+@if (Session["member"] != null)
+{
+    <p>
+        @*@Html.ActionLink("登出系統", "Logout", "Login", null, new { @class = "btn btn-danger" })*@
+        @*@Html.ActionLink("會員資料", "Index", "Member", null, new { @class = "btn btn-success" })*@
+        @Html.ActionLink("新增寶物", "Create", "Commodity", null, new { @class = "btn btn-success" })
+    </p>
+}
+
+@if (Session["administrator"] == null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <p>@item.Photo</p>
+                        <h2>@item.CommName</h2>
+                        <p>價格: @item.Price</p>
+                        <p>@Html.ActionLink("詳細", "Details", new { CommID = item.CommID }, new { @class = "btn btn-info" })</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div>
+        @Html.ActionLink("返回首頁", "Index", "Home")
+    </div>
+}
+
+@if (Session["administrator"] != null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <p>@item.Photo</p>
+                        <h2>@item.CommName</h2>
+                        <p>價格: @item.Price</p>
+                        <p>
+                            @Html.ActionLink("詳細", "Details", new { CommID = item.CommID }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("刪除", "Delete", new { CommID = item.CommID }, new { @class = "btn btn-danger" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div>
+        @Html.ActionLink("返回總管理系統", "Index", "ManagementSystem")
+    </div>
+}

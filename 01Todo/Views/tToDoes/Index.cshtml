@@ -1,0 +1,59 @@
+﻿@model IEnumerable<_01Todo.Models.tToDo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            序號
+
+        </th>
+        <th>
+            標題
+            @*@Html.DisplayNameFor(model => model.fTitle)*@
+        </th>
+        <th>
+            圖示
+            @*@Html.DisplayNameFor(model => model.fImage)*@
+        </th>
+        <th>
+            結案日
+            @*@Html.DisplayNameFor(model => model.fDate)*@
+        </th>
+        <th>
+            工作事項維護
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.fId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fTitle)
+    </td>
+    <td>
+        <img src="~/images/@item.fImage" width="40"/>
+
+        @*@Html.DisplayFor(modelItem => item.fImage)*@
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fDate)
+    </td>
+    <td>
+        @Html.ActionLink("修改", "Edit", new { id = item.fId }) |
+        @Html.ActionLink("詳細", "Details", new { id = item.fId }) |
+        @Html.ActionLink("刪除", "Delete", new { id = item.fId })
+    </td>
+</tr>
+}
+
+</table>

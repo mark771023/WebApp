@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="Content/MyStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <input id="Button1" type="button" value="button" class="btn btn-danger" />
+        <input id="Reset1" type="reset" value="reset" class="btn btn-warning" />
+        <input id="Submit1" type="submit" value="submit" class="btn btn-success" />
+
+        <button class="btn btn-primary">
+            <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" /></svg>
+            click it
+        </button>
+
+        <hr />
+
+        <div class="btn-group  btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <!--預選狀態-->
+                <input id="Radio1" type="radio" name="test" checked />
+                aaa
+            </label>
+
+            <label class="btn btn-primary">
+                <input id="Radio1" type="radio" name="test" />
+                bbb
+            </label>
+
+            <label class="btn btn-primary">
+                <input id="Radio1" type="radio" name="test" />
+                ccc
+            </label>
+        </div>
+
+        <hr />
+
+        <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />
+                aaaaa
+            </label>
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />bbbbb
+            </label>
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />ccccc
+            </label>
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />
+                ddddd
+            </label>
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />eeeee
+            </label>
+            <label class="btn btn-success active">
+                <input id="Radio1" type="checkbox" name="test" />fffff
+            </label>
+        </div>
+
+    </div>
+
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

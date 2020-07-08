@@ -1,0 +1,77 @@
+﻿@*//03-6-9 撰寫HTMLHelper/Create View 內容*@
+
+@model _03View.Models.Member
+
+@{
+    ViewBag.Title = "註冊會員";
+}
+
+<h2>註冊會員</h2>
+@*<form method="post" action="/HTMLHelper/Create" id="form1" title="abcd">*@
+@using (Html.BeginForm("Create", "HTMLHelper", FormMethod.Post, new { id = "form1", title = "abcd" }))
+{
+    <p>
+        帳號：@Html.TextBoxFor(model => model.UserId)
+
+    </p>
+    <p>
+        密碼：@Html.PasswordFor(model => model.Pwd)
+    </p>
+    <p>
+        姓名：@Html.TextBoxFor(model => model.Name)
+    </p>
+    <p>
+        信箱：@Html.TextBoxFor(model => model.Email)
+    </p>
+    <p>
+        生日：@Html.TextBoxFor(model => model.Birthday)
+    </p>
+    <p>
+        <img src="@Url.Action("getCode")" alt="" id="code" />
+        <input id="Button1" type="button" value="重新取碼" />
+        <br />
+        驗證碼：<input id="ValidationCode" name="ValidationCode" type="text" maxlength="6" />
+
+        <span style="color:red">@ViewBag.CodeErr</span>
+    </p>
+    <p>
+        <input id="Submit1" type="submit" value="註冊" />
+    </p>
+}
+@*</form>*@
+
+<hr />
+@ViewBag.Msg
+<hr />
+@Html.Raw(ViewBag.Msg)
+<hr />
+
+
+@*//03-6-11 撰寫@helper方法*@
+<h2>成績判斷</h2>
+@helper ScoreCheck(int math, int eng, int chi)
+{
+    int avg = (math + eng + chi) / 3;
+    if (avg < 60)
+    {
+        @:不及格
+    }
+    else
+    {
+        @:及格
+    }
+}
+
+@ScoreCheck(50, 50, 70)
+@ScoreCheck(65, 70, 88)
+@ScoreCheck(75, 87, 90)
+
+
+@MyHelper.ScoreCheck(75, 87, 90)
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $('#Button1').click(function () {
+        form1.code.src = '/HTMLHelper/getCode?' + Math.random();
+    });
+</script>

@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - STORY</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <style>
+
+
+        /*#bg {
+                                position: fixed;
+        top:10px;
+                    width:200%;
+                    height:1000px;
+                }*/
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+            .bg img {
+                min-height: 100%;
+                width: 100%;
+            }
+
+        /*#bkcover {
+            position: absolute;
+            overflow: auto;
+            cursor: pointer;
+            width: 600px;
+            height: 800px;
+            margin-top: 50px;
+            left: 200px;
+            /*top: 40px;*/
+            /*display: none;*/
+        /*}*/
+
+        /*#bkopen {
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 0px;
+            width: 1800px;
+            height: 850px;
+            margin: 10px;
+            overflow: auto;
+            cursor: pointer;
+            display: none;
+            z-index: 1;
+            opacity:0.5;
+
+        }*/
+
+        /*#bkopen {
+            position: absolute;
+            top: 15px;
+            left: 60px;
+            right: 0px;
+            width: 1700px;
+            height: 850px;
+            margin-top: 15px;
+            margin-left: 80px;
+            margin: 5px;
+            overflow: auto;
+            cursor: pointer;
+            display: none;
+            z-index: 50;
+            background-image: url('../../image/05.PNG');
+            width:90%;
+            height:100%;
+            background-size: cover;
+            background-position: center;
+            
+        }*/
+
+     
+
+        #webcontent {
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 80px;
+            height: 800px;
+            width: 5000px;
+            top:20px;
+            left:20px;
+            transform: translate(5%, 5%);
+            display:contents;
+            fill:ActiveBorder;
+            direction:ltr;
+            overflow:auto;
+            float:left;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+         #mark {
+            position: absolute;
+            top: 95%;
+            left: 80%;
+            font-weight: 800;
+            /*display: none;*/
+            /*text-wrap:normal;*/
+        }
+
+        /*#bar {
+            position: absolute;
+            margin-top: 5px;
+            margin-left: 60px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+        }*/
+
+
+        /*#btn1 {
+            background-color: aqua;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            background-image: url('../../image/01.jpg');
+            position: absolute;
+            width: 30px;
+            height: 10px;
+            cursor: pointer;
+            margin-top: -20px;
+            margin-left: 150px;
+            z-index: 10;
+            background-color: black;
+            border-radius: 50%;
+            border: 7px blue outset;
+            display: none;
+            width:100px;
+        }
+
+        #btn2 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: -20px;
+            margin-left: 260px;
+            z-index: 10;
+            background-color: black;
+            border-radius: 50%;
+            border: 7px red outset;
+            display: none;
+        }
+
+        #btn3 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: -20px;
+            margin-left: 400px;
+            z-index: 10;
+            background-color: black;
+            border-radius: 50%;
+            border: 7px yellow outset;
+            display: none;
+        }
+
+        #btn4 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: 80px;
+            margin-left: 60px;
+            z-index: 15;
+            background-color: black;
+            border-radius: 25%;
+            border: 10px red outset;
+            display: none;
+        }
+
+        #btn5 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: 210px;
+            margin-left: 60px;
+            z-index: 15;
+            background-color: black;
+            border-radius: 25%;
+            border: 10px orange outset;
+            display: none;
+        }
+
+        #btn6 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: 340px;
+            margin-left: 60px;
+            z-index: 15;
+            background-color: black;
+            border-radius: 25%;
+            border: 10px green outset;
+            display: none;
+        }
+
+        #btn7 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: 470px;
+            margin-left: 60px;
+            z-index: 15;
+            background-color: black;
+            border-radius: 25%;
+            border: 10px blue outset;
+            display: none;
+        }
+
+        #btn8 {
+            position: absolute;
+            cursor: pointer;
+            margin-top: 470px;
+            margin-left: 60px;
+            z-index: 15;
+            background-color: black;
+            border-radius: 25%;
+            border: 10px blue outset;
+            display: none;
+        }
+
+        #Menu {
+            position: absolute;
+            z-index: 15;
+            margin-top: 70px;
+            margin-left: 10px;
+            width: 100px;
+            height: 2000px;
+            cursor: pointer;
+            border-radius: %;
+            direction: ltr;
+        }*/
+
+       
+
+        /*html {
+            overflow: -moz-hidden-unscrollable;
+            height: 100%;
+        }*/
+
+        /*body::-webkit-scrollbar {
+            display: none;
+        }*/
+
+        /*html::-webkit-scrollbar {display:none}*/
+
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class=" bg img-fluid ">
+        <img src="~/image/background1.jpg" />
+    </div>
+
+    <div @*id="bkcontent"*@ >
+        <div @*id="webcontent"*@ >
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer id="mark">
+        <p>&copy; @DateTime.Now.Year - 第二組行動商務</p>
+    </footer>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @*@RenderSection("scripts", required: false)*@
+
+    <script>
+           
+
+    </script>
+</body>
+</html>

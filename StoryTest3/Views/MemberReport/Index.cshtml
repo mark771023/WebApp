@@ -1,0 +1,57 @@
+﻿@model IEnumerable<StoryTest3.Models.MemberReport>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MemRepID)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MemID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MemRepFactor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemRepDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MemRepID)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.MemID)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.MemRepFactor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MemRepDate)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.Member.Account)
+    </td>*@
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MemRepID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MemRepID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MemRepID })
+    </td>
+</tr>
+}
+
+</table>

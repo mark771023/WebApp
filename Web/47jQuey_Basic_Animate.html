@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  
+    <style>
+        #container{
+            border:5px solid;
+            position:relative;
+            width:1200px;          
+            /*margin:auto;*/
+        }
+
+        #photo {
+            position: absolute;
+            left: -1000px;
+            border: 5px solid #ffd800;
+            border-radius: 20px;
+        }
+        #title{
+            position:absolute;
+            border:3px solid white;
+            color:white;
+            background-color:blueviolet;
+            font-size:24pt;
+            text-align:center;
+            width:450px;
+            top:320px;
+            left:180px;
+            font-family:標楷體;
+            font-weight:900;
+            padding:5px;
+        }
+    </style>
+
+</head>
+<body>
+  
+    <div id="container"></div>
+    <img src="bLTsDQ-4.jfif" id="photo" />
+    <p id="title">大漠風光</p>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $('#title').hide();
+        $('#photo').animate({ 'left': 5 }, 2000, function () {
+            $('#title').fadeIn(2000, function () {
+                $('#photo,#title').hide(1500);
+            });
+        });
+        
+    </script>
+
+
+</body>
+</html>

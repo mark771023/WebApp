@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Story_Test12.Models.Announcement>
+@{
+    ViewBag.Title = "公告列表";
+}
+
+<h2>公告列表</h2>
+
+@if (Session["administrator"] != null)
+{
+    <p>@Html.ActionLink("發布新公告", "Create", null, new { @class = "btn btn-success" })</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCont)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCont)
+                </td>
+                <td>
+                    @Html.ActionLink("詳細資料", "Details", new { PostID = item.PostID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("刪除", "Delete", new { PostID = item.PostID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("返回總管理系統", "Index", "ManagementSystem")
+    </div>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostID)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.AdminID)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PostName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCont)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostID)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.AdminID)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCont)
+                </td>
+                <td>
+                    @Html.ActionLink("詳細資料", "Details", new { PostID = item.PostID }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("返回首頁", "Index", "Home")
+    </div>
+}

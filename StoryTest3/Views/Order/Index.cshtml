@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @model IEnumerable<StoryTest3.Models.Order>
+
+    @{
+        ViewBag.Title = "訂單列表";
+    }
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <style>
+        #bkopen {
+            position: absolute;
+            top: 15px;
+            left: 60px;
+            /*right: 0px;*/
+            width: 1700px;
+            height: 850px;
+            margin-top: 15px;
+            margin-left: 80px;
+            /*margin: 5px;*/
+            overflow: auto;
+            /*cursor: pointer;*/
+            /*display: none;*/
+            z-index: 100;
+            background-image: url('../../image/05.PNG');
+            /*width: 90%;
+            height: 100%;*/
+            background-size:cover;
+            /*background-position: center;*/
+            /*background-repeat:no-repeat;*/
+        }
+
+
+         #bkcontent {
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 80px;
+            height: 50%;
+            width:50%;
+            top:20px;
+            left:20px;
+            transform: translate(5%, 5%);
+        }
+
+        #webcontent {
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 80px;
+            height: 800px;
+            width: 5000px;
+            top:20px;
+            left:20px;
+            transform: translate(5%, 5%);
+            display:contents;
+            fill:ActiveBorder;
+            direction:ltr;
+            overflow:auto;
+            float:left;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+     
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="bkopen" class="container-fluid">
+        <div id="bkcontent" class="container ">
+            <div id="webcontent" class="container ">
+
+                <h2>訂單列表</h2>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            訂單編號
+                            @*@Html.DisplayNameFor(model => model.OrdID)*@
+                        </th>
+                        @*<th>
+                            訂單金額
+                            @Html.DisplayNameFor(model => model.OrdAmount)
+                        </th>
+                        <th>
+                            訂單數量
+                            @Html.DisplayNameFor(model => model.OrdTotal)
+                        </th>
+                        <th>
+                            運送方式
+                            @Html.DisplayNameFor(model => model.Transport)
+                        </th>
+                        <th>
+                            下訂日期
+                            @Html.DisplayNameFor(model => model.OrdDate)
+                        </th>*@
+                        <th>訂單管理</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrdID)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OrdAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrdTotal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Transport)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrdDate)
+                            </td>*@
+                            <td>
+                                @Html.ActionLink("修改", "Edit", new { id = item.OrdID }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("訂單明細", "Details", new { id = item.OrdID }, new { @class = "btn btn-success" })
+                                @Html.ActionLink("刪除", "Delete", new { id = item.OrdID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <table class="table">
+                    <tr>
+                        <td>
+                            <button class="btn btn-warning  ">
+                                @Html.ActionLink("新增訂單", "Create", new { @class = "alert alert-info" })
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script>
+
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自寫一個翻書的Js效果</title>
+   
+</head>
+<body style="padding:5px;margin:0;">
+
+    <div id="book" style="width:797px;height:494px;background:#ccc;border:solid 6px #ccc;">
+        <div id="left" style="width:398px;height:494px;float:left;background:url(images/PLh.png) no-repeat top left;cursor:pointer;"></div>
+        <div id="right" style="width:398px;height:494px;float:left;background:#fff;cursor:pointer;margin-left:1px;text-align:right;">
+            <p style="margin-top:470px;font-size:12px;color:#999;">點這翻頁 </p>
+        </div>
+    </div>
+
+    <script type="text/javascript" language="javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $("#right").click(function () {
+                var roll = $("<div/>", { css: { position: "absolute", border: "solid 1px #999", left: "806px", top: "10px", height: "494px", width: "1px", background: "#fff url(images/eCX.png) repeat-y -200px 0px" } }).appendTo($("#book").parent());
+                $(roll).animate({
+                    left: "10px",
+                    width: "398px",
+                    "background-position": "272px 0px"
+                }, 1000, function () {
+                    $("#left").css({ "background": "#fff" });
+                    $(roll).fadeOut(300, function () {
+                        $(roll).remove();
+                    })
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

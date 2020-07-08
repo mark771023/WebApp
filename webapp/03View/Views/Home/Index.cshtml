@@ -1,0 +1,64 @@
+﻿@model IEnumerable<_03View.Models.NightMarket>
+
+@*//03-2-1 修改英文標題為中文,修改<th>標籤內容為中文字*@
+@{
+    ViewBag.Title = "南部地區各大夜市";
+}
+
+<h2 class="alert alert-info">南部地區各大夜市</h2>
+
+<p>
+    @Html.ActionLink("新增一筆資料", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            編號
+        </th>
+        <th>
+            夜市名稱
+            @*@Html.DisplayNameFor(model => model.Name)*@
+        </th>
+        <th>
+            夜市地址
+            @*@Html.DisplayNameFor(model => model.Address)*@
+        </th>
+        <th>
+            照片
+        </th>
+        <th>
+            地圖
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @*//03-2-2 增加item.Id, 並將最後一欄註解*@
+        @item.Id
+    </td>
+    <td>
+        @item.Name
+        @*@Html.DisplayFor(modelItem => item.Name)*@
+    </td>
+    <td>
+        @item.Address
+        @*@Html.DisplayFor(modelItem => item.Address)*@
+    </td>
+    @*//03-5-3 增加圖片及地圖顯示*@
+    <td>
+        <img src="~/images/@(item.Id).JPG" width="200" />
+    </td>
+    <td>
+        <a href="https://www.google.com/maps/place/@item.Address" target="_blank" class="btn btn-danger">查看地圖</a>
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+</tr>
+    }
+
+</table>

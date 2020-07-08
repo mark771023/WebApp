@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Story_Test8.Models.OrderMapping>
+
+@{
+    ViewBag.Title = "會員購物車清單";
+}
+
+<h2>會員購物車清單</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Commodity.MemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Industry.IndustryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Transport)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrdAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrdTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commodity.MemID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Industry.IndustryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.Transport)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("刪除購物車", "DeleteCar", new { @class = "btn btn-success"})*@
+                <p><a href="@Url.Action("DeleteCar")?MemID=@item.MemID" class="btn btn-primary">刪除購物車</a></p>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<form action="@Url.Action("ShoppingCar")" method="post">
+    <div class="form-horizontal">
+        <h4>填寫訂單收件人資料</h4>
+        <hr />
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人姓名</span>
+            <div class="col-md-10">
+                <input type="text" id="Receiver" name="Receiver" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人信箱</span>
+            <div class="col-md-10">
+                <input type="email" id="Email" name="Email" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人地址</span>
+            <div class="col-md-10">
+                <input type="text" id="Address" name="Address" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="確認訂購" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+</form>

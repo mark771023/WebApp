@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+
+
+</head>
+<body>
+
+    <video controls="controls" autoplay="autoplay">
+        <source src="One Punch Man - Manga - Ch.127 - Garou Vs  Dark Shine.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+
+        myVid = document.getElementById("video1");
+        //控制视频开关
+        myVid.play() //播放
+        myVid.pause() //暂停
+        //模拟视频进度条
+        myVid.currentTime = 5; //返回或设定当前视频播放位置
+        myVid.duration // 返回视频总长度
+        //模拟视频音量
+        myVid.volume //音量
+        //获取视频当前状态后判断何时从loading切换为播放
+        myVid.readyState
+        //0 = HAVE_NOTHING - 没有关于音频/视频是否就绪的信息
+        //1 = HAVE_METADATA - 关于音频/视频就绪的元数据
+        //2 = HAVE_CURRENT_DATA - 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒
+        //3 = HAVE_FUTURE_DATA - 当前及至少下一帧的数据是可用的
+        //4 = HAVE_ENOUGH_DATA - 可用数据足以开始播放
+
+        var dragDis = 0
+        var processWidth = xxx //拖拽条总长
+        $('body').mousedown(function (e) {
+            startX = e.clientX
+            dragDis = startX - leftInit //leftInit为拖拽条起始点距屏幕左侧的距离
+            dragTarget.css({ //拖拽按钮
+                left: dragDis
+            })
+            dragProcess.css({ //进度条(蓝色进度条)
+                width: dragDis
+            }) // 令进度条和拖拽按钮渲染在同一位置
+            videoSource.pause()
+        }).mousemove(function (e) {
+            moveX = e.clientX
+            disX = moveX - startX
+            var left = dragDis + disX
+            if (left > processWidth) {
+                left = processWidth
+            } else if (left < 0) {
+                left = 0
+            }
+            dragTarget.css({
+                left: left
+            })
+            dragProcess.css({
+                width: left
+            })
+        }).mouseup(function (e) {
+            videoSource.play()
+            videoSource.currentTime = $('蓝色拖拽条').width() / processWidth * duration //拖拽后计算视频的正确播放位置
+        })
+        function ifState() {
+            var state = videoSource.readyState
+            if (state === 4) { //状态为4即可播放
+                videoPlayer()
+            } else {
+                $('.play-sym-wrapper').remove()
+                $('body').append('<div class="play-sym-wrapper">![](./images/loading.gif)</div>')
+                //添加loading动画
+                setTimeout(ifState, 10)
+            }
+        }
+        setTimeout(ifState, 10)
+
+
+
+
+
+    </script>
+
+    http://localhost:50406/music%20player%20-%20%E8%A4%87%E8%A3%BD.html
+
+</body>
+</html>

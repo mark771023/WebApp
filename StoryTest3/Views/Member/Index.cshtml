@@ -1,0 +1,110 @@
+﻿@model IEnumerable<StoryTest3.Models.Member>
+
+@{
+    ViewBag.Title = "會員資料列表";
+}
+
+<h3>會員資料列表</h3>
+@if (Session["member"] != null)
+{
+    <p>
+        @Html.ActionLink("登出系統", "Logout", "Login", null, new { @class = "btn btn-danger" })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("登入系統", "Index", "Login", null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("註冊會員", "Create", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("忘記密碼", "Create", null, new { @class = "btn btn-success" })
+
+    </p>
+}
+
+@if (Session["member"] != null)
+{
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MemID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E_mail)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_mail)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>*@
+                <td>
+                    @*@Html.ActionLink("詳細", "Details", new { MemID = item.MemID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("修改會員資料", "Edit", new { MemID = item.MemID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("刪除會員", "Delete", new { MemID = item.MemID }, new { onclick = "return confirm('您確定要刪除嗎？？')", @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h1 class="text-info">
+        歡迎最高領導人回國!!請入內用膳。
+    </h1>
+}

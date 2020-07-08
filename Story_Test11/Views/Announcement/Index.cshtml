@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "公告專區";
+
+}
+    <div class="container" style="height:100px;"></div>
+@if (Session["administrator"] != null)
+{
+    <div>
+        <h2>公告專區</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("發布新公告", "Create", null, new { @class = "btn btn-success" })
+        </p>
+
+        @Html.Action("_PostGallery") @*這一行是PartialView*@
+       
+        @Html.ActionLink("返回總管理系統", "Index", "ManagementSystem")
+    </div>
+}
+else
+{
+<div>
+    <h2>公告專區</h2>
+    <hr />
+    @Html.Action("_PostGallery") @*這一行是PartialView*@
+    @Html.ActionLink("返回首頁", "Index", "Home")
+</div>
+}

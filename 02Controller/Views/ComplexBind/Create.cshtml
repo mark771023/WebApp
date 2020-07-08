@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@*//02-3-9 修改title文字與加入form內容*@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增作業</title>
+</head>
+<body>
+    <form method="post" action="@Url.Action("Create")">
+        @*所有表單元件都要放在form*@   @*送到伺服器的方式為:post*@  @*自動轉換路徑*@
+
+        <h3>產品新增作業</h3>
+
+        <div>
+            <p>編號:<input id="PID" name="PID" type="text" required /></p>
+            <p>品名:<input id="PName" name="PName" type="text" required /></p>
+            <p>單價:<input id="Price" name="Price" type="number" min=0 required /></p>
+            <p><input id="Submit1" type="submit" value="新增" /></p>
+        </div>
+
+        <hr />
+
+        @{ //C#寫法
+            if (ViewBag.PId != null)
+            {
+                <p>產品新增作業結果</p>
+                <p>編號:@ViewBag.PId 品名:@ViewBag.PName 單價:@ViewBag.Price</p>
+            }
+        }
+
+    </form>
+</body>
+</html>

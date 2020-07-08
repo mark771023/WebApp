@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   
+
+</head>
+<body>
+    <video controls="controls" autoplay="autoplay">
+
+        <source src="One Punch Man - Manga - Ch.127 - Garou Vs  Dark Shine.mp4" type="video/mp4" />
+
+    </video>
+
+    <script>
+        myVid = document.getElementById("video1");
+
+        //控制視頻開關
+
+        myVid.play() //播放
+
+        myVid.pause() //暫停
+
+        //模擬視頻進度條
+
+        myVid.currentTime = 5; //返回或設定當前視頻播放位置
+
+        myVid.duration // 返回視頻總長度
+
+        //模擬視頻音量
+
+        myVid.volume //音量
+
+        //獲取視頻當前狀態後判斷何時從loading切換為播放
+
+        myVid.readyState
+
+        //0 = HAVE_NOTHING - 沒有關於音頻/視頻是否就緒的信息
+
+        //1 = HAVE_METADATA - 關於音頻/視頻就緒的元數據
+
+        //2 = HAVE_CURRENT_DATA - 關於當前播放位置的數據是可用的，但沒有足夠的數據來播放下一幀/毫秒
+
+        //3 = HAVE_FUTURE_DATA - 當前及至少下一幀的數據是可用的
+
+        //4 = HAVE_ENOUGH_DATA - 可用數據足以開始播放
+
+
+        var dragDis = 0
+
+        var processWidth = xxx //拖拽條總長
+
+        $('body').mousedown(function (e) {
+
+            startX = e.clientX
+
+            dragDis = startX - leftInit //leftInit為拖拽條起始點巨螢幕左側的距離
+
+            dragTarget.css({ //拖拽按鈕
+
+                left: dragDis
+
+            })
+
+            dragProcess.css({ //進度條(藍色進度條)
+
+                width: dragDis
+
+            }) // 令進度條和拖拽按鈕渲染在同一位置
+
+            videoSource.pause()
+
+        }).mousemove(function (e) {
+
+            moveX = e.clientX
+
+            disX = moveX - startX
+
+            var left = dragDis + disX
+
+            if (left > processWidth) {
+
+                left = processWidth
+
+            } else if (left < 0) {
+
+                left = 0
+
+            }
+
+            dragTarget.css({
+
+                left: left
+
+            })
+
+            dragProcess.css({
+
+                width: left
+
+            })
+
+        }).mouseup(function (e) {
+
+            videoSource.play()
+
+            videoSource.currentTime = $('藍色拖拽條').width() / processWidth * duration //拖拽後計算視頻的正確播放位置
+
+        })
+
+        function ifState() {
+
+            var state = videoSource.readyState
+
+            if (state === 4) { //狀態為4即可播放
+
+                videoPlayer()
+
+            } else {
+
+                $('.play-sym-wrapper').remove()
+
+                $('body').append('<div class="play-sym-wrapper"><img class="play-sym" src="./images/loading.gif"></div>')
+
+
+                //添加loading動畫
+
+                setTimeout(ifState, 10)
+
+            }
+
+        }
+
+        setTimeout(ifState, 10)
+
+
+
+
+
+    </script>
+
+    https://kknews.cc/zh-tw/news/yejknmk.html
+
+
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿@model IEnumerable<Story_Test10.Models.Commodity>
+
+@{
+    ViewBag.Title = "STORY寶物傳承";
+}
+    <div class="container" style="height:100px;"></div>
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+
+<div class="container" style="height:120px;"></div>
+
+<div class="container">
+    <div id="carouselOne" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselOne" data-slide-to="0"></li>
+            <li data-target="#carouselOne" data-slide-to="1"></li>
+            <li data-target="#carouselOne" data-slide-to="2"></li>
+            <li data-target="#carouselOne" data-slide-to="3"></li>
+            <li data-target="#carouselOne" data-slide-to="4"></li>
+            <li data-target="#carouselOne" data-slide-to="5" class="active"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item ">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照01.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2><strong>商晚期 安陽 公元前十一世紀 勺方鼎</strong></h2>
+                    <p>
+                        <strong>
+                            高度：20.7cm
+                            估價：US$100萬～150萬
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照02.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2><strong>商晚期/西周早期 公元前十一世紀 冉父丙盉</strong></h2>
+                    <p>
+                        <strong>
+                            高度：33cm
+                            估價：US$50萬～70萬
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照03.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2><strong>西周早期 公元前十一至十世紀 戈祖己簋</strong></h2>
+                    <p>
+                        <strong>
+                            尺寸：38cm
+                            估價：US$50萬～70萬
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照04.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2><strong>商晚期 公元前十二至十一世紀 聑竹觚一對</strong></h2>
+                    <p>
+                        <strong>
+                            高度：31cm
+                            估價：US$40萬～60萬
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照05.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2 class="text-dark"><strong>乾隆洋彩透龍夾層玲瓏尊</strong></h2>
+                    <p class="text-dark">
+                        <strong>
+                            估價:US$640萬～US$900萬
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <img class="d-block w-100 img-fluid" src="~/Images/骨董照06.jpg" style="height:600px;" />
+                <div class="carousel-caption d-none d-md-block ForCarouselFont">
+                    <h2><strong>70年古董電扇</strong></h2>
+                    <p>
+                        <strong>
+                            日本昭和 芝浦電風扇(東芝前身)
+                        </strong>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselOne" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselOne" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+@*@if (Session["member"] != null)
+    {
+        <p>
+            @Html.ActionLink("登出", "Logout", "Login", null, new { @class = "btn btn-danger" })
+        </p>
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("登入", "Index", "Login", null, new { @class = "btn btn-danger" })
+        </p>
+    }*@
+@*<div class="jumbotron">
+    <h3 class="text-light ForJumbotronChineseFont"> 回憶能遠離平淡，能使本來平淡的日子背叛現實做一次超越的飛翔!!</h3>
+    <h4 class="lead ForJumbotronnLeadChineseFont text-light">童年，只有再回憶中顯現時，才成就了那份完美!!</h4>
+    <hr />*@
+@*@Html.ActionLink("找尋回憶", "Index", "Commodity", null, new { @class = "btn btn-primary" }) &raquo;*@
+@*<h1>盛大開幕</h1>
+    <p class="lead">狂賀本網站盛大開幕</p>
+    <p>
+        <a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a>
+    </p>*@
+@*</div>*@
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>@Html.ActionLink("最新公告", "Index", "Announcement")</h2>
+        <p>
+            @Html.Action("_PostGallery", "Announcement", new { number = 3 })
+            @*<img src="~/Images/01.jpg" style="width:350px;" />*@
+        </p>
+        <p class="btn btn-default">
+            @Html.ActionLink("查詢更多", "Index", "Announcement") &raquo;
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h2>@Html.ActionLink("寶物專區", "Index", "Commodity")</h2>
+        <p>
+            @Html.Action("_PostGalleryComm", "Commodity", new { number = 2 })
+        </p>
+        <p class="btn btn-default">
+            @Html.ActionLink("查詢更多", "Index", "Commodity") &raquo;
+        </p>
+    </div>
+</div>
+@*<hr />
+<div class="row">
+    <h2>@Html.ActionLink("寶物專區", "Index", "Commodity")</h2>
+    <div class="col-md-12">
+        <p>
+            @Html.Action("_PostGalleryComm", "Commodity", new { number = 3 })
+        </p>
+    </div>*@
+    @*<div class="col-md-4">
+            <p>
+
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p>
+
+            </p>
+        </div>*@
+    @*<p class="btn btn-default">*@
+        @*@Html.ActionLink("查詢更多", "Index", "Commodity") &raquo;*@
+        @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">查詢更多 &raquo;</a>
+    </p>
+</div>*@

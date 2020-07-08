@@ -1,0 +1,79 @@
+﻿@model Story_Test11.Models.Commodity
+@{
+    ViewBag.Title = "詳細資料";
+}
+
+<h2>詳細資料</h2>
+
+<div>
+    @*<h4>Member</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MemID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MemID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Story)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+    </dl>
+    @if (Session["member"] != null)
+    {
+        <div class="form-actions no-color">
+            @Html.ActionLink("修改", "Edit", new { CommID = Model.CommID })
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("返回列表", "Index")
+        </div>
+    }
+</div>

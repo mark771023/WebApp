@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>       
+
+        .col1 {
+            background-color: aqua;
+        }
+
+        .col2 {
+            background-color: coral;
+        }
+
+        .col3 {
+            background-color: blue;
+        }
+
+        .col4 {
+            background-color: chartreuse
+        }
+
+        .col5 {
+            background-color: darkgray;
+        }
+
+        .col6 {
+            background-color: crimson;
+        }
+
+        .col7 {
+            background-color: darkcyan;
+        }
+
+        .col8 {
+            background-color: darkgoldenrod;
+        }
+
+        .col9 {
+            background-color: fuchsia;
+        }
+
+        .col10 {
+            background-color: darksalmon;
+        }
+
+        .row {
+            height: 250px;
+            background-color: antiquewhite;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>垂直對齊(相對於row)</h2>
+        <h3>利用row對齊</h3>
+        <div class="row align-items-start">
+            <div class="col1 col-md">Col1</div>
+            <div class="col2 col-md">Col2</div>
+            <div class="col3 col-md">Col3</div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col1 col-md">Col1</div>
+            <div class="col2 col-md">Col2</div>
+            <div class="col3 col-md">Col3</div>
+        </div>
+        <div class="row align-items-end">
+            <div class="col1 col-md">Col1</div>
+            <div class="col2 col-md">Col2</div>
+            <div class="col3 col-md">Col3</div>
+        </div>
+
+        <hr />
+
+        <h2>Col自身對齊(相對於row)</h2>
+        <div class="row">
+            <div class="col1 col-md align-self-start">Col1</div>
+            <div class="col2 col-md align-self-center">Col2</div>
+            <div class="col3 col-md align-self-end">Col3</div>
+        </div>
+
+        <hr />
+
+        <h2>水平對齊(相對於row)</h2>
+        <h3>靠左對齊</h3>
+        <div class="row justify-content-start">
+            <div class="col4 col-md-2">Col4</div>
+            <div class="col5 col-md-2">Col5</div>
+            <div class="col6 col-md-2">Col6</div>
+        </div>
+        <h3>置中對齊</h3>
+        <div class="row justify-content-center">
+            <div class="col4 col-md-2">Col4</div>
+            <div class="col5 col-md-2">Col5</div>
+            <div class="col6 col-md-2">Col6</div>
+        </div>
+        <h3>靠右對齊</h3>
+        <div class="row justify-content-end">
+            <div class="col4 col-md-2">Col4</div>
+            <div class="col5 col-md-2">Col5</div>
+            <div class="col6 col-md-2">Col6</div>
+        </div>
+        <h3>均分對齊</h3>
+        <div class="row justify-content-around">
+            <div class="col4 col-md-2">Col4</div>
+            <div class="col5 col-md-2">Col5</div>
+            <div class="col6 col-md-2">Col6</div>
+        </div>
+        <h3>分散對齊</h3>
+        <div class="row justify-content-between">
+            <div class="col4 col-md-2">Col4</div>
+            <div class="col5 col-md-2">Col5</div>
+            <div class="col6 col-md-2">Col6</div>
+        </div>
+
+        <hr />
+
+        <h2>移除間隙(gutter)</h2>
+        <div class="row no-gutters">
+            <div class="col7 col-md">Col7</div>
+            <div class="col8 col-md">Col8</div>
+            <div class="col9 col-md">Col9</div>
+        </div>
+        <div class="row">
+            <div class="col7 col-md">Col7</div>
+            <div class="col8 col-md">Col8</div>
+            <div class="col9 col-md">Col9</div>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="col7 col-md">Col7</div>
+            <div class="col8 col-md">Col8</div>
+            <div class="col9 col-md">Col9</div>
+            <div class="col1 col-md">Col1</div>
+        </div>
+        <div class="row">
+            <div class="col7 col-md">Col7</div>
+            <div class="col8 col-md">Col8</div>
+            <div class="col9 col-md">Col9</div>
+            <div class="col1 col-md">Col1</div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

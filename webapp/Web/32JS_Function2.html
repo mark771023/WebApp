@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    X:<input id="txtX" type="text"  />
+    Y:<input id="txtY" type="text" />
+    <h1 id="clock"></h1>
+
+    <div id="car" style="background-color:red; width:200px;height:200px;border-radius:50%;position:absolute;left:0px">
+
+    </div>
+
+    <script>
+        document.addEventListener("mousemove",getXY);
+        showTime();
+        myAnimation();
+
+
+
+
+
+        function getXY(evt) {
+            txtX.value = evt.pageX;
+
+            txtY.value = evt.pageY;
+        }
+
+        function showTime() {
+            var myTime = new Date();
+            var h = myTime.getHours();
+            var m = myTime.getMinutes();
+            var s = myTime.getSeconds();
+
+            h = h < 10 ? "0" + h : h;
+            
+            m = m < 10 ? "0" + m : m;
+            
+            s = s < 10 ? "0" + s : s;
+            
+
+            clock.innerText = h + ":" + m + ":" + s;
+
+            setTimeout( showTime, 1000);
+        }
+
+        function myAnimation() {
+            var x = car.offsetLeft;
+            x += 2;
+            car.style.left = x + "px";
+
+            if(x<1720)
+                setTimeout( myAnimation, 10);
+
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

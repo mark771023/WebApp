@@ -1,0 +1,57 @@
+﻿@model StoryTest3.Models.Order
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+
+    <h2>訂單明細</h2>
+
+<div>
+    <h4>訂單</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrdID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.OrdID }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

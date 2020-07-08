@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="data1">
+
+
+
+        </div>
+
+        <hr />
+        <form class="form-inline" id="StuForm">
+            <div class="form-group">
+                <label for="id" class="col-form-label col-md-2">學號</label>
+                <div class="col-md-10">
+                    <input id="id" name="學號" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-form-label col-md-2">姓名</label>
+                <div class="col-md-10">
+                    <input id="name" name="姓名" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="col-form-label col-md-2">性別</label>
+                <div class="col-md-10">
+                    <input id="gender" name="性別" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tel" class="col-form-label col-md-2">電話</label>
+                <div class="col-md-10">
+                    <input id="tel" name="電話" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthday" class="col-form-label col-md-2">生日</label>
+                <div class="col-md-10">
+                    <input id="birthday" name="生日" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <input id="btnGet" type="button" value="查詢" class="btn btn-info" />
+                    <input id="btnUpdate" type="button" value="修改" class="btn btn-success" />
+                    <input id="btnDel" type="button" value="刪除" class="btn btn-danger" />
+                    <input id="btnAdd" type="button" value="新增" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!--<div class="mb-2 bg-light border border-info">
+
+    </div>-->
+
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script>
+
+        //所有資料列表
+        $.ajax({
+            type: "Get",
+            url: "http://localhost:57042/api/Students",
+            success: function (data) {
+                //alert("OK!!");
+                for (i = 0; i < data.length; i++) {
+                    $('#data1').append('<div class="col-md-4 mb-3 -2 bg-light border border-info""><h3>學號:' + data[i].學號 + '</h3><h2>姓名:' + data[i].姓名 + '</h2><h3>性別:' + data[i].性別 + '</h3><h3>生日:' + data[i].生日 + '</h3><h3>電話:' + data[i].電話 + '</h3></div>');
+                }
+            },
+            error: function () {
+                alert('Error!!');
+            }
+
+
+        });
+
+        //查詢某一筆資料
+
+        $('#btnGet').click(function () {
+            $.ajax({
+                type: "Get",
+                url: "http://localhost:57042/api/Students/" + $('#id').val(),
+                success: function (data) {
+
+                    $('#name').val(data.姓名);
+                    $('#gender').val(data.性別);
+                    $('#tel').val(data.電話);
+                    $('#birthday').val(data.生日);
+
+                },
+                error: function () {
+                    alert('Error!!');
+                }
+
+
+            });
+
+        });
+        //修改某一筆資料
+
+        $('#btnUpdate').click(function () {
+
+            console.log($('#StuForm').serialize());  //序列化
+
+            $.ajax({
+                type: "Put",
+                url: "http://localhost:57042/api/Students/" + $('#id').val(),
+                data: $('#StuForm').serialize()
+            });
+
+        });
+
+
+        //刪除某一筆資料
+        $('#btnDel').click(function () {
+            $.ajax({
+                type: "Delete",
+                url: "http://localhost:57042/api/Students/" + $('#id').val(),
+                success: function (data) {
+                    alert('刪除成功');
+
+                },
+                error: function () {
+
+                    alert($('#id').val());
+                }
+            });
+
+        });
+
+        //新增一筆資料
+
+        $('#btnAdd').click(function () {
+
+            console.log($('#StuForm').serialize());  //序列化
+
+            $.ajax({
+                type: "Post",
+                url: "http://localhost:57042/api/Students",
+                data: $('#StuForm').serialize()
+            });
+
+        });
+    </script>
+</body>
+</html>

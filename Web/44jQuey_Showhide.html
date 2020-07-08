@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2 id="shownews">看新聞</h2>     
+
+    <div id="news">
+        Los trabajadores de servicios no esenciales, como la construcción o la industria, vuelven este lunes a sus puestos tras dos semanas de hibernación de la economía. El pasado 30 de marzo, el Gobierno endureció el estado de alarma y ordenó el cese de toda la actividad laboral no imprescindible para reducir la movilidad a la propia de un domingo y forzar la bajada de contagios por el coronavirus. Oficinas, albañiles y fábricas, entre otros, pararon. Este lunes, sin embargo, muchos vuelven al trabajo con las reticencias de algunos sanitarios y la oposición de algunos políticos. Cataluña se ha posicionado radicalmente en contra y Madrid expone sus dudas por el riesgo, dicen, de rebrotes. El debate en la comunidad científica busca equilibrar este riesgo con el impacto que tiene, en términos de salud a largo plazo, mantener la actividad económica al mínimo.
+
+        El Gobierno decidió reanudar parte de la actividad sin el consenso de sus expertos
+        La policía repartirá diez millones de mascarillas entre quienes vayan a trabajar en transporte público
+
+        El Gobierno insiste en que España no está en fase de desescalada. El confinamiento continúa, pero volviendo a las condiciones decretadas con el primer estado de alarma, el 14 de marzo. Esto significa que la mayor parte de la población sigue en su casa —colegios, bares, restaurantes, equipamientos culturales y centros de ocio permanecen cerrados—, pero se reinicia la actividad económica que paró con el decreto de hibernación. El Ejecutivo de Pedro Sánchez ha acompañado la decisión de reactivar estos sectores con el refuerzo de medidas de protección, como el reparto de 10 millones de mascarillas en el transporte público y la publicación de un protocolo de actuación para una vuelta al trabajo más segura.
+
+        Con todo, el debate sobre levantar la hibernación de la economía sigue sobre la mesa. La Generalitat de Cataluña, por ejemplo, considera una “imprudencia” y una “temeridad” relajar el confinamiento. La presidenta de la Comunidad de Madrid, Isabel Díaz Ayuso, sembró dudas sobre la estrategia de Sánchez y pidió que aclare “cuánto, cómo y dónde” se llevará a cabo el reparto de mascarillas anunciado. “Otra ola ahora mismo sería imperdonable”, zanjó.
+
+        Los expertos admiten que se juega en el terreno de la “incertidumbre”. “Nadie sabe si prolongar esto cinco días más va a tener un enorme beneficio o si pesará más el impacto económico. Ninguna decisión puede ser fija y radical”, valora Toni Trilla, epidemiólogo y miembro del comité científico que asesora al Gobierno. La gran reducción en la movilidad ya se produjo, de hecho, con el primer estado de alarma, cuando el Gobierno limitó los desplazamientos y ordenó el confinamiento de la población en sus domicilios. “Desde el momento en que se dijo que había que quedarse en casa, la movilidad urbana se redujo un 70%. Con el confinamiento total bajó un 10% adicional. Tampoco pasamos del blanco al negro. Ahora puede haber un 10% más de movilidad otra vez y más contagios, pero el otro 70% tiene que mantener las condiciones de antes y no salir de casa”, agrega Trilla. Coincide el epidemiólogo Joan Ramon Villalbí: “Pasar del confinamiento extremo al confinamiento menos extremo comporta un riesgo, pero modesto”.
+
+        Otros expertos, no obstante, tienen dudas. La viróloga del CSIC Margarita del Val calificó de “precipitada” la reanudación de la actividad industrial. Los sindicatos sanitarios tampoco lo ven con buenos ojos. “Seguimos a ciegas. Se va a hacer una desescalada del confinamiento sin saber cuánta gente está afectada ni cuántos asintomáticos hay. Puede haber un brote en cualquier momento”, lamenta María José Campillo, tesorera de la Confederación Española de Sindicatos Médicos (CESM).
+
+        Desde el sindicato de enfermería Satse alertan de que la vuelta al trabajo puede generar un repunte de casos que deberán asumir “unos centros congestionados y cuando los profesionales sanitarios no tienen, en muchos casos, la protección necesaria para trabajar”. Desde el sector de las residencias, de los más castigados por la Covid-19, la patronal Aeste teme “un repunte de contagios entre los trabajadores de los centros”, agrega su presidente, Jesús Cubero.
+
+    </div>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $('#news').hide();
+
+        var flag = true;
+
+         $('#shownews').click(function () {
+             //$('#news').show(3000);
+             $('#news').toggle(3000, function () {
+                    a = flag ? "隱藏新聞" : "看新聞";
+             flag = !flag; //做自己的倒過來
+             $('#shownews').text(a);
+             });
+        });
+    </script>
+
+
+</body>
+</html>

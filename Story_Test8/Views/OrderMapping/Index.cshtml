@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Story_Test8.Models.OrderMapping>
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+
+    <h2>訂單明細</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Commodity.MemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Industry.IndustryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Transport)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commodity.MemID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Industry.IndustryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Transport)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

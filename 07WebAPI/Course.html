@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="data1">
+
+
+
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $.ajax({
+            type: "Get",
+            url: "http://localhost:55709/Api/CourseAPI/Get",
+            success: function (data) {
+                //alert("OK!!");
+                for (i = 0; i < data.length; i++) {
+                    $('#data1').append('<div class="col-md-4 img-thumbnail"><h3>編號:' + data[i].Id + '</h3><h2>課程:' + data[i].Name + '</h2><h3>時數:' + data[i].Hours + '</h3></div>');
+                }
+            },
+            error: function () {
+                alert('Error!!');
+            }
+
+
+        });
+    </script>
+</body>
+</html>

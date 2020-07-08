@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Story_Test12.Models.Administrator>
+
+@{
+    ViewBag.Title = "管理員資料表";
+}
+    <div class="container" style="height:100px;"></div>
+<h2>管理員列表</h2>
+
+@*@if (Session["administrator"] != null)
+{
+    <p>
+        @Html.ActionLink("登出系統", "Logout", "LoginAdministrator", null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("會員列表", "Index", "Member", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("寶物列表", "Index", "Commodity", null, new { @class = "btn btn-success" })
+
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("登入系統", "Index", "LoginAdministrator", null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("新增管理員", "Create", null, new { @class = "btn btn-success" })
+    </p>
+}*@
+<p>@Html.ActionLink("新增管理員", "Create", null, new { @class = "btn btn-success" })</p>
+
+@*@if (Session["administrator"] != null)
+{*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminPwd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E_mail)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminPwd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdminName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_mail)
+                </td>
+                <td>
+                    @Html.ActionLink("詳細資料", "Details", new { AdminID = item.AdminID }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("刪除", "Delete", new { AdminID = item.AdminID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        @Html.ActionLink("返回總管理系統", "Index", "ManagementSystem")
+    </div>
+
+@*}*@
+@*else
+{
+}*@

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        div{
+            color:red;
+        }
+        div p{
+            color:green;
+        }
+        div>p{
+            color:blue;
+        }
+        div+p{   
+            color:blue;  /*加號是兄弟的意思   div 往下一層的節點 */
+        }
+         div~p{   
+            color:orange;  /*與前者相衝突 通常不放在一起  也是兄弟的意思  div 同一層下面所有節點 */
+        }
+    </style>
+
+</head>
+<body>
+
+    <div>
+        <p>JavaScript</p>
+    </div>
+
+    <span>
+        jQuery
+    </span>
+    <span>
+        <p>HTML</p>
+    </span>
+    <p>
+        ASP.net MVC
+    </p>
+    <div>
+        <p>CSS3</p>
+        <b><p>ASP.net</p></b>
+        <span>PHP</span>
+        <span>
+            <p>SQL Server</p>
+        </span>
+    </div>
+    <p>
+        JAVA
+    </p>
+
+</body>
+</html>

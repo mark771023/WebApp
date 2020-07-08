@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #thing {
+            background-color:brown;
+            width:500px;height:500px;
+        }
+    </style>
+</head>
+<body>
+     <input id="Button1" type="button" value="登入系統" />
+
+    <fieldset id="login" style="width:250px">
+        <legend>登入系統</legend>
+        <table>
+            <tr>
+                <td>帳號</td>
+                <td>
+                    <input id="Text1" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>密碼</td>
+                <td>
+                    <input id="Password1" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input id="Button1" type="button" value="登入" /></td>
+
+            </tr>
+
+
+        </table>
+
+    </fieldset>
+    <hr />
+
+    <input id="Button2" type="button" value="button" />
+    <div id="thing">
+
+    </div>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+       
+        $('#login').hide();
+
+        $('#Button1').click(function () {
+            $('#login').fadeToggle(1500);
+
+        });
+
+
+        $('#Button2').click(fadeShow);
+
+        function fadeShow() {
+            n = Math.random();
+
+            $('#thing').fadeTo(500, n);
+
+
+            setTimeout(fadeShow,500);
+        }
+
+    </script>
+</body>
+</html>

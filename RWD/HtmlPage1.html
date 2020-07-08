@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <a class="buttons prev" href="#">上一張</a>
+
+            <ul class="card-list">
+
+
+
+                <li class="card" style="background: #c31432;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+                    <img src="images/01.jpg" alt="Sun" class="card-list__image">
+
+                    <h3 class="card-text">Watch your way toward success as you excel above your competitors.  </h3>
+                </li>
+
+
+
+                <li class="card" style="background: #00416A;
+background: -webkit-linear-gradient(to right, #FFE000, #799F0C, #00416A);
+background: linear-gradient(to right, #FFE000, #799F0C, #00416A);
+">
+                    <img src="images/01.jpg" alt="Sun" class="card-list__image">
+
+                    <h3 class="card-list__text">Relax and chill, we've got you covered :) </h3>
+                </li>
+
+
+
+                <li class="card" style="background: #1e3c72;
+background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);
+background: linear-gradient(to right, #2a5298, #1e3c72);
+">
+                    <img src="images/01.jpg" alt="Sun" class="card-list__image">
+
+                    <h3 class="card-list__text">  Boost your social networking presence</h3>
+                </li>
+
+                <li class="card" style="background: #2C3E50;
+background: -webkit-linear-gradient(to right, #FD746C, #2C3E50);
+background: linear-gradient(to right, #FD746C, #2C3E50);
+">
+                    <img src="images/01.jpg" alt="Sun" class="card-list__image">
+
+                    <h3 class="card-list__text">  Be at the top of your competitors</h3>
+
+                </li>
+
+
+
+                <li class="card" style="background: #373B44;
+background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+background: linear-gradient(to right, #4286f4, #373B44);
+">
+                    <img src="images/01.jpg" alt="Sun" class="card-list__image">
+
+                    <h3 class="card-list__text">  Create contents for your online courses</h3>
+                </li>
+
+
+
+            </ul>
+
+            <a class="buttons next" href="#">下一張</a>
+
+        </div>
+    </div>
+
+    <script>
+        var $card = $('.card');
+        var lastCard = $(".card-list .card").length - 1;
+
+        $('.next').click(function () {
+            var prependList = function () {
+                if ($('.card').hasClass('activeNow')) {
+                    var $slicedCard = $('.card').slice(lastCard).removeClass('transformThis activeNow');
+                    $('ul').prepend($slicedCard);
+                }
+            }
+            $('li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+            setTimeout(function () { prependList(); }, 150);
+        });
+
+        $('.prev').click(function () {
+            var appendToList = function () {
+                if ($('.card').hasClass('activeNow')) {
+                    var $slicedCard = $('.card').slice(0, 1).addClass('transformPrev');
+                    $('.card-list').append($slicedCard);
+                }
+            }
+
+            $('li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
+            setTimeout(function () { appendToList(); }, 150);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Story_Test11.Models.Order>
+
+@{
+    ViewBag.Title = "會員訂單列表";
+}
+
+    <h2>會員訂單列表</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdGuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Receiver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderMapping.OrdGuid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdGuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Receiver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrdTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderMapping.OrdGuid)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.OrdID }) |
+        @Html.ActionLink("訂單明細", "", new { id = item.OrdID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.OrdID })*@
+            <a href="@Url.Action("OrderDetail")?OrdGuid=@item.OrdGuid" class="btn btn-primary">訂單明細</a>
+
+        </td>
+    </tr>
+}
+
+</table>

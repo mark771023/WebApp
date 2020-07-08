@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        #tb1 {
+            width: 3000px;
+            margin: auto;
+            text-align: left;
+        }
+
+            #tb1 > thead th {
+                background-color: #483939;
+                color: #ffffff;
+            }
+            #tb1 > tbody > tr  {
+                text-align: left;
+            }
+
+
+            #tb1 > tbody > :nth-child(2n+1) {
+                background-color: #808080;
+            }
+
+            #tb1 > tbody > tr > :hover {
+                background-color: #af15dc;
+            }
+    </style>
+
+</head>
+<body>
+    <table id="tb1" align="left">
+    </table>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $.ajax({
+            type: 'get',
+            url: 'MyData - test.json',
+            format: 'json',           
+            success: function (data) {
+                //alert('連接成功')
+                $('#tb1').append(" <thead><tr><th>許可證字</th><th>許可證號</th><th>中文名稱</th><th>農藥代號</th><th>英文名稱</th><th>廠牌名稱</th><th>化學成分</th><th>國外原製造廠商</th><th>有效期限</th><th>廠商名稱</th><th>農藥使用範圍</th></tr></thead>");
+                $('#tb1').append("<tbody>");
+
+                for (i = 0; i < data.length; i++) {
+                    $('#tb1').append("<tr><th>" + data[i].許可證字 + "</th><th>" + data[i].許可證號 + "</th><th>" + data[i].中文名稱 + "</th><th>" + data[i].農藥代號 + "</th><th>" + data[i].英文名稱 + "</th><th>" + data[i].廠牌名稱 + "</th><th>" + data[i].化學成分 + "</th><th>" + data[i].國外原製造廠商 + "</th><th>" + data[i].有效期限 + "</th><th>" + data[i].廠商名稱 + "</th><th>" + data[i].農藥使用範圍 + "</th></tr>");
+                }
+                $('#tb1').append("<tbody>");
+            },
+            error: function () { alert('連接失敗') }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Story_Test9.Models.OrderMapping>
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+
+    <h2>訂單明細</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Commodity.MemID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Transport)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commodity.MemID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Transport)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.OrdID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrdID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrdID })*@
+        </td>
+    </tr>
+}
+
+</table>

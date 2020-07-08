@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+
+
+</head>
+<body>
+    <div>
+        <h4 id="name">你的情歌</h4>
+        <br>
+        <audio id="audio" src="One Punch Man - Manga - Ch.127 - Garou Vs  Dark Shine.mp4 " controls></audio><br />
+    </div>
+
+    <br><br>
+
+    <div>
+        <button id="btn-play">播放</button>
+        <button id="btn-stop">暂停</button>
+        <button id="btn-pre">上一首</button>
+        <button id="btn-next">下一首</button>
+    </div>
+
+    <script>
+
+        var btn1 = document.getElementById("btn-play");
+        btn1.onclick = function () {
+            if (audio.paused) {
+                audio.play();
+            }
+        }
+
+        var btn2 = document.getElementById("btn-stop");
+        btn2.onclick = function () {
+            if (audio.played) {
+                audio.pause();
+            }
+        }
+        var music = new Array();
+        music = ["想見你想見你想見你", "Without You", "天黑請閉眼"];
+        var num = 0;
+        var name = document.getElementById("name");
+
+
+        var btn3 = document.getElementById("btn-pre");
+        btn3.onclick = function () {
+            num = (num + 2) % 3;
+            audio.src = "music/" + music[num] + ".mp3";
+            name.innerHTML = music[num];
+            audio.play();
+        }
+
+
+        var btn4 = document.getElementById("btn-next");
+        btn4.onclick = function () {
+            num = (num + 1) % 3;
+            audio.src = "music/" + music[num] + ".mp3";
+            name.innerHTML = music[num];
+            audio.play();
+        }
+    </script>
+
+    https://www.jb51.net/article/109905.htm
+
+</body>
+</html>

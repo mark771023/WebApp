@@ -1,0 +1,18 @@
+﻿@helper ScoreCheck(int math, int eng, int chi)
+{
+    int avg = (math + eng + chi) / 3;
+    if (avg < 60)
+    {
+        @:不及格
+    }
+    else
+    {
+        @:及格
+    }
+}
+
+@ScoreCheck(50,50,50)
+@ScoreCheck(65,70,88)
+@ScoreCheck(75,87,90)
+
+@MyHelper.ScoreCheck(75,87,90)

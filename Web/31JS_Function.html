@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="Button1" type="button" value="開始玩終極密碼" onclick="Playgame()" />
+
+    <script>
+        //var a = 161, b = 321;
+
+        //document.write(getGCD());
+
+        //function getGCD() {
+        //    var k = 0
+        //    while (a % b != 0) {    //
+        //        k = a % b;  //保留榆樹
+        //        a = b; //b永遠當除數    
+        //        b = k; //a永遠當被除數
+
+        //    }
+        //    return b;
+            
+        //}
+
+        /////////
+        var n = 56;
+        var a = n;
+        var result = "";
+        
+        function toBinary() {
+           
+            while (a>2) {                     
+                c = a % 2;
+                result += c;
+
+                a = parseInt(a / 2);
+                 
+            }
+           return result;
+           
+        }
+        var r = toBinary();
+        for (i = r.length - 1; i >= 0; i--) {
+            document.write(r[i]);
+        }
+
+
+
+
+
+
+
+        ///////////////////////////////////
+        var Rainbow = new Array("紅", "橙", "黃", "綠", "藍", "靛", "紫");
+        MyReverse();
+
+        Rainbow = new Array("a", "b", "c", "d", "e", "f", "g");
+
+        //var RainbowColor = new Array("red", "orange", "yellow", "green", "blue", "indigo", "violet");
+
+        //document.write(Rainbow.reverse());
+        MyReverse();
+        function MyReverse() {
+       
+            for (i = Rainbow.length - 1; i >= 0; i--) {
+            document.write(Rainbow[i]);
+            }
+        }
+
+        function Playgame() {
+
+            var pswd = Math.floor(Math.random() * 99 + 1);  //可產生1~99之間的隨機整數
+            //document.write(pswd);
+
+            //var pswd = 36;
+
+            var n = 0;
+
+            var intMin = 0, intMax = 100;
+
+            while (true) {
+
+                n = prompt("終極密碼大挑戰, 請於" + intMin + "~" + intMax + "間選一個數字", "");
+
+                if (n == null) {
+                    alert("您已經取消遊戲");
+                    break;
+                }
+
+                if (n <= parseInt(intMin) || n >= parseInt(intMax) || isNaN(n) || n.indexOf(".") != -1) {
+                    alert("請輸入範圍內的值");
+                }
+
+                else if (n == pswd) {
+                    alert("恭喜答對, 遊戲結束");
+                    break;
+                }
+                else if (n > pswd) {
+                    intMax = n;
+                }
+                else if (n < pswd) {
+                    intMin = n;
+                }
+            }
+
+
+        }
+
+    </script>
+
+
+
+
+
+</body>
+</html>

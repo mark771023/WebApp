@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <img src="00.jpg" title="這是一隻無尾熊" alt="這是一隻無尾熊" data-toggle="tooltip" data-placement="right" />
+
+        <hr />
+
+        <button type="button" class="btn btn-secondary" title="Popover展示" data-toggle="popover" data-placement="left" data-content="這是一個Popover的內容" data-container="body">
+            Popover
+        </button>
+        <hr />
+        <form>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="email" class="form-control" placeholder="Enter Your Email....." required />
+                <small class="form-text text-muted">忘記帳號</small>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input id="pwd" type="password" class="form-control" required />
+            </div>
+            <div class="form-group form-check">
+                <input id="Agree" type="checkbox" class="form-check-input" title="請勾選我同意" data-toggle="tooltip" data-placement="top" />
+                <label for="Agree">我同意</label>
+            </div>
+            <input id="Submit1" type="button" value="submit" class="btn btn-primary" />
+        </form>
+    </div>
+
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script>
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('[data-toggle="popover"]').popover();
+
+
+        $('#Submit1').click(function () {
+            if (!$('#Agree').is(":checked"))
+                $('#Agree').tooltip('show');
+        });
+
+    </script>
+</body>
+</html>

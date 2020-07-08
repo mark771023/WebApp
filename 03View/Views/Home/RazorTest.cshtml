@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "RazorTest";
+}
+
+@*//03-4-4 Razor語法練習*@
+<h2>RazorTest</h2>
+
+@*這是單行註解*@
+@*這是
+    區塊
+        註解
+*@
+
+@{ //程式碼表示方法
+
+    var name = "John";
+    string name2 = "Kevin";   //string是強型別
+    int Math = 85, Eng = 90, Chi = 95;
+
+    @:歡迎 @name 光臨
+    //照著顯示 :後面接字串   所以name要再+@
+
+    <span>歡迎 @name 光臨</span>
+    <h2>歡迎 @name 光臨</h2>
+
+}
+
+<h2>歡迎 @name 光臨</h2>
+
+@Math + @Eng + @Chi = @(Math + Eng + Chi)
+
+<h2>@Math + @Eng + @Chi = @(Math + Eng + Chi)</h2>
+
+@(ViewBag.IsLogin = false)
+@*(指定)運算需要放在()裡*@
+
+@if (ViewBag.IsLogin)
+{
+    @:會員已登入
+}
+else
+{
+    <span>會員已登出</span>
+}
+<hr />
+@{
+    string[] MarketName = { "瑞豐夜市", "新堀江商圈", "六合夜市", "青年夜市", "花園夜市", "大東夜市", "武聖夜市" };
+}
+
+<ul>
+
+    @foreach (var item in MarketName)
+    {
+        <span>@item</span>
+    }
+
+</ul>
+
+<ul class="btn-group">
+
+    @foreach (var item in MarketName)
+    {
+        <li class="btn btn-default">@item</li>
+    }
+
+</ul>
+

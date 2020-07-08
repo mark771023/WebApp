@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Story_Test9.Models.Commodity>
+
+@if (Session["administrator"] == null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6 card h-100">
+                <div class="thumbnail">
+                    <div class="caption card border-light">
+                        <p><img src="/upfiles/Commodity/@item.Photo" style="width:250px; height:auto" class="card-img-top" /></p>
+                        <h4 class="card-title"><strong>『@item.CommName』</strong></h4>
+                        <p><strong>故事:</strong>@item.Story</p>
+                        <p><strong>價格:</strong>@item.Price</p>
+                        <p>@Html.ActionLink("詳細", "Details", new { CommID = item.CommID }, new { @class = "btn btn-info" })</p>
+                        @if (Session["Member"] == null)
+                        {
+                            <p></p>
+                        }
+                        else
+                        {
+                            <p>@Html.ActionLink("我想購買", "AddCar", "OrderMapping", new { CommID = item.CommID }, new { @class = "btn btn-primary" })</p>
+                            @*<p><a href="@Url.Action("AddCar")?CommID=@item.CommID" class="btn btn-primary">我想購買</a></p>*@
+
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@if (Session["administrator"] != null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6 card h-100">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <p><img src="/upfiles/Commodity/@item.Photo" style="width:250px; height:auto" /></p>
+                        <h4><strong>『@item.CommName』</strong></h4>
+                        <p><strong>故事:</strong>@item.Story</p>
+                        <p><strong>價格:</strong>@item.Price</p>
+                        <p>
+                            @Html.ActionLink("詳細", "Details", new { CommID = item.CommID }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("刪除", "Delete", new { CommID = item.CommID }, new { @class = "btn btn-danger" })
+                        </p>
+                        @*<p><a href="@Url.Action("AddCar")?CommID=@item.CommID" class="btn btn-primary">我想購買</a></p>*@
+                        <p>@Html.ActionLink("我想購買", "AddCar", "OrderMapping", new { CommID = item.CommID }, new { @class = "btn btn-primary" })</p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

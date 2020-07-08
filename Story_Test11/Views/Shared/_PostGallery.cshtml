@@ -1,0 +1,38 @@
+﻿@*@model PhotoSharing.Models.Photo*@
+@model IEnumerable<Story_Test11.Models.Announcement>
+
+@if (Session["administrator"] != null)
+{
+    <div>
+        @foreach (var item in Model)
+        {
+            <h4><strong>『@item.PostName』</strong></h4>
+
+            <p><strong>公告日期:</strong>@item.PostTime</p>
+            <p><strong>公告內容:</strong>@item.PostCont</p>
+            <p>
+                @Html.ActionLink("詳細資料", "Details", new { PostID = item.PostID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("刪除", "Delete", new { PostID = item.PostID }, new { @class = "btn btn-danger" })
+            </p>
+            <hr />
+        }
+    </div>
+}
+else
+{
+    <div>
+        @foreach (var item in Model)
+        {
+            <h4><strong>『@item.PostName』</strong></h4>
+
+            <p><strong>公告日期:</strong>@item.PostTime</p>
+            <p><strong>公告內容:</strong>@item.PostCont</p>
+            <p>
+                @Html.ActionLink("詳細資料", "Details", new { PostID = item.PostID }, new { @class = "btn btn-info" })
+            </p>
+            <hr />
+        }
+    </div>
+}
+
+

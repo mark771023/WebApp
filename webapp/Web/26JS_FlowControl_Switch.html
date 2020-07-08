@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        var intPayType = 8; //1:信用卡付款, 2:現金, 3:轉帳, 4:貨到付款
+        switch (intPayType) {
+            case 1:
+                document.write("您選擇的是信用卡付款!");
+                break;
+            case 2:
+                document.write("您選擇的是現金付款!");
+                break;
+            case 3:
+                document.write("您選擇的是轉帳付款!");
+                break;
+            case 4:
+                document.write("您選擇的是貨到付款!");
+                break;
+            default:
+                 document.write("請檢查付款方式設定是否有誤!");
+                break;
+        }
+        /////////////////////////////////////////////
+        document.write("<br>");
+
+        var strColor = "qqqqq";
+       
+         switch (strColor) {
+            case "黃":
+                document.write("黃色");
+                break;
+            case "綠":
+                document.write("綠色!");
+                break;
+            case "紅":
+                document.write("紅色!");
+                break;
+         
+            default:
+                 document.write("這不是黃綠紅!!!");
+                break;
+        }
+
+        /////////////////////////////////////////////
+        document.write("<br>");
+        var score = 78;
+
+        score = parseInt(score / 10);
+
+        switch (score) {
+            case 10:
+             case 9:
+                document.write("優等");
+                break;
+             case 8:
+                document.write("甲等");
+                break;
+             case 7:
+                document.write("乙等");
+                break;
+             case 6:
+                document.write("丙等");
+                break;
+            default:
+                document.write("丁等");
+                break;
+        }
+
+
+    </script>
+</body>
+</html>

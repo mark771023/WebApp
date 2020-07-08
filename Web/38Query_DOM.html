@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+   
+
+    </style>   
+
+</head>
+<body>
+
+    <h1>
+        444444
+    </h1>
+
+    <div id="container">
+
+    </div>
+
+    <h1>
+        333333333
+    </h1>
+
+
+    <script src="Scripts/jquery-3.4.1.min.js">
+    </script>
+
+    <script>
+        $('#container').text("Welcome");  //將welcome加到id:container
+        $('#container').html("<h1>Welcome</h1>");  //inner html 呼叫html
+        $('#container').append("<h1>22222</h1>");  //在container中附加一個節點, 在最後附加, append為子節點
+        $('#container').html("<h1>Welcome</h1>").append("<h1>22222</h1>");  //選擇器一樣就可以串起來, 注意順序append在前面會蓋掉html
+
+        $('#container+h1').after("<h2>88888</h2>");  //after為兄弟節點
+        $('#container+h1').before("<h2>77777</h2>");  
+
+    </script>
+
+</body>
+</html>

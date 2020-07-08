@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        var sum = 0;
+        for (i = 1; i <= 100; i++) {
+            sum += i;  //sum=sum+i
+        }
+        document.write("sum=" + sum);
+
+        document.write("<hr>");
+
+        var sum2 = 0;
+        var i = 1;
+        while (i <= 100) {
+            sum2 += i;
+            i++;
+            
+        }
+        document.write("sum2=" + sum2);
+
+        document.write("<hr>");
+
+        var Rainbow = new Array("紅", "橙", "黃", "綠", "藍", "靛", "紫");
+        var RainbowColor = new Array("Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet");
+        // for (i = 0; i < Rainbow.length; i++) {
+        //     document.write("<span style='color:"+RainbowColor[i]+"'>"+Rainbow[i]+"</span>");
+        //}
+
+        var j = 0;
+        while (j < Rainbow.length) {
+           document.write("<span style='color:"+RainbowColor[j]+"'>"+Rainbow[j]+"</span>");
+           j++;
+            
+        }
+
+
+        //do {
+
+        //} while()
+    </script>
+</body>
+</html>

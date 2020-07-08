@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="alert alert-danger">
+            您現在是最高權限,用完後請馬上登出
+        </div>
+        <div class="alert alert-warning">
+            您現在是最高權限,用完後請馬上登出
+        </div>
+        <div class="alert alert-info">
+            您現在是最高權限,用完後請馬上登出
+        </div>
+
+        <hr />
+
+        <div class="alert alert-info">
+            您現在是最高權限,用完後請馬上登出
+            <button class="close" data-dismiss="alert">&times;</button>
+        </div>
+
+        <div class="alert alert-danger">
+            您現在是最高權限,用完後請馬上登出
+            <a href="#">登出</a>
+        </div>
+
+        <div class="alert alert-warning alert-dismissible fade show" id="myAlert">
+            <h4>您好!系統管理員</h4>
+            <p>您現在是最高權限,用完後請馬上登出!</p>
+            <button class="close" data-dismiss="alert">&times;</button>
+            <hr />
+            <p>目前登入系統是危險的! 請注意密碼外洩或其他資安問題!</p>
+            
+        </div>
+
+        <script src="Scripts/jquery-3.0.0.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
+        <!--將bootstrap所有資料庫載入-->
+        <script>
+            $('#myAlert').on('closed.bs.alert', function () {
+                alert("您關閉了提醒!使用完記得一定要登出系統哦~");
+            })
+        </script>
+
+    </div>
+
+</body>
+</html>

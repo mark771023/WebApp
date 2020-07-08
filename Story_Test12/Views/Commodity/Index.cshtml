@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "寶物專區";
+}
+    <div class="container" style="height:100px;"></div>
+
+@if (Session["member"] != null)
+{
+    <div>
+        <h2>寶物專區</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("新增寶物", "Create", "Commodity", null, new { @class = "btn btn-success" })
+        </p>
+        @Html.Action("_PostGalleryComm") @*這一行是PartialView*@
+        @Html.ActionLink("返回首頁", "Index", "Home")
+    </div>
+}
+else if (Session["Administrator"] != null)
+{
+    <div>
+        <h2>寶物專區</h2>
+        <hr />
+        @Html.Action("_PostGalleryComm") @*這一行是PartialView*@
+        @Html.ActionLink("返回總管理系統", "Index", "ManagementSystem")
+    </div>
+}
+else
+{
+    <div>
+        <h2>寶物專區</h2>
+        <hr />
+        @Html.Action("_PostGalleryComm") @*這一行是PartialView*@
+        @Html.ActionLink("返回首頁", "Index", "Home")
+    </div>
+}
+
+@*@if (Session["administrator"] == null)
+    {
+        <div>
+            <h2>寶物專區</h2>
+            <hr />
+            @Html.Action("_PostGalleryComm") 這一行是PartialView
+            @Html.ActionLink("返回首頁", "Index", "Home")
+        </div>
+    }*@
